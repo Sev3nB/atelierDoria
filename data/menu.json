@@ -1,0 +1,8 @@
+[
+  {"category": "Antipasti", "items": [{"name": "Selezione stagionale", "description": "Proposte dalla cucina secondo mercato e stagione.", "price": "—"}]},
+  {"category": "Primi", "items": [{"name": "Pasta fresca del giorno", "description": "Tradizione pugliese in evoluzione.", "price": "—"}]},
+  {"category": "Secondi", "items": [{"name": "Pescato del giorno", "description": "Disponibilità e preparazione secondo mercato.", "price": "—"}]},
+  {"category": "Dessert", "items": [{"name": "Dolce dell’Atelier", "description": "Creazione stagionale della cucina.", "price": "—"}]},
+  {"category": "Vini", "items": [{"name": "Cantina pugliese", "description": "Etichette selezionate, disponibili al calice e in bottiglia.", "price": "—"}]}
+]
+
