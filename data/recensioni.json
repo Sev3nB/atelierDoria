@@ -1,6 +1,6 @@
 [
-  {"name": "Ospite verificato", "rating": 5, "text": "Una cucina curata, capace di valorizzare la materia prima e la tradizione.", "date": "Testimonianza da verificare", "source": "Bozza editoriale"},
-  {"name": "Ospite verificato", "rating": 5, "text": "Ambiente intimo e accogliente, con una cucina a vista che racconta il lavoro dello chef.", "date": "Testimonianza da verificare", "source": "Bozza editoriale"},
-  {"name": "Ospite verificato", "rating": 5, "text": "Sapori riconoscibili, presentati con equilibrio e una sensibilità contemporanea.", "date": "Testimonianza da verificare", "source": "Bozza editoriale"}
+  {"name": "Francesco F.", "rating": 5, "text": "Cura millimetrica nei dettagli, materie prime freschissime e gentilezza del personale: un posto da provare e riprovare.", "date": "luglio 2026", "source": "TheFork", "url": "https://www.thefork.it/ristorante/atelier-doria-r856705"},
+  {"name": "Chiara C.", "rating": 5, "text": "Locale raffinato e bella atmosfera. Frisa, tagliolino cacio e pepe e grigliata di pesce: tutto perfetto.", "date": "luglio 2026", "source": "TheFork", "url": "https://www.thefork.it/ristorante/atelier-doria-r856705"},
+  {"name": "Antonella D.", "rating": 5, "text": "Location contemporanea e raffinata, cucina a vista e un percorso curato dall’antipasto al dolce.", "date": "novembre 2025", "source": "Tripadvisor", "url": "https://www.tripadvisor.it/Restaurant_Review-g187875-d31764661-Reviews-Atelier_Doria-Brindisi_Province_of_Brindisi_Puglia.html"},
+  {"name": "Andreina F.", "rating": 5, "text": "Pietanze gustose e ricercate, tra mare e terra. La cucina a vista rende gli ospiti partecipi del lavoro dello chef.", "date": "gennaio 2025", "source": "Tripadvisor", "url": "https://www.tripadvisor.it/Restaurant_Review-g187875-d31764661-Reviews-Atelier_Doria-Brindisi_Province_of_Brindisi_Puglia.html"}
 ]
-

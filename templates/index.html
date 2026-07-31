@@ -1,14 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="hero">
-  <div class="hero-content reveal"><p class="eyebrow">Osteria contemporanea · Brindisi</p><h1>I sapori di una volta, in una nuova veste.</h1><p>Radici pugliesi, ingredienti di stagione e una cucina aperta al presente.</p><div class="actions"><a class="button" href="{{ url_for('bookings') }}">Prenota ora</a><a class="text-link light" href="{{ url_for('menu') }}">Scopri il menu</a></div></div>
+  <div class="hero-orbit" aria-hidden="true"><span>Radici</span><i></i><span>Presente</span></div>
+  <div class="hero-content reveal">
+    <p class="eyebrow">Hostaria · Corso Roma 32, Brindisi</p>
+    <h1>La tradizione<br><em>non sta ferma.</em></h1>
+    <p>La Puglia di Danilo Doria: sapori onesti, cucina a vista e piatti che ricordano da dove veniamo.</p>
+    <div class="actions"><a class="button" href="{{ url_for('bookings') }}">Prenota un tavolo</a><a class="text-link light" href="{{ url_for('menu') }}">Scopri il menu</a></div>
+  </div>
+  <div class="hero-proof reveal"><strong>8,5</strong><span>su 10 · TheFork<br>22 recensioni</span></div>
+  <p class="hero-note">Centro storico<br>Brindisi</p>
 </section>
-<section class="split section">
-  <div class="reveal"><p class="eyebrow">La nostra storia</p><h2>Il ritorno alle radici</h2><p>Dopo l’esperienza a Londra, Danilo Doria torna in Puglia e porta a Brindisi una cucina personale: riconoscibile nella memoria, precisa nel gesto, contemporanea nello sguardo.</p><a class="text-link" href="{{ url_for('about') }}">Conosci l’Atelier</a></div>
-  <div class="art-frame art-olive" role="img" aria-label="Composizione astratta ispirata agli ulivi e alla ceramica pugliese"></div>
-</section>
-<section class="section section-dark"><div class="section-heading"><p class="eyebrow">Dalla cucina</p><h2>Materia, stagione, territorio.</h2></div><div class="instagram-grid">{% for p in instagram_posts %}<a href="{{ p.url }}" target="_blank" rel="noopener"><img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.alt }}" width="600" height="600" loading="lazy"><span>{{ p.caption }}</span></a>{% endfor %}</div><a class="button button-outline" href="{{ instagram_url }}" target="_blank" rel="noopener">Seguici su Instagram</a></section>
-<section class="section"><div class="section-heading"><p class="eyebrow">Dicono di noi</p><h2>Una tavola da ricordare</h2></div><div class="card-grid">{% for r in reviews %}<article class="review-card"><span class="stars" aria-label="{{ r.rating }} stelle">{{ "★" * r.rating }}</span><blockquote>“{{ r.text }}”</blockquote><p>{{ r.name }} · {{ r.source }}</p></article>{% endfor %}</div><a class="text-link" href="{{ url_for('reviews') }}">Leggi tutte le recensioni</a></section>
-<section class="visit section"><div><p class="eyebrow">Nel cuore di Brindisi</p><h2>Corso Roma, 32</h2><p>A pochi passi dalla Chiesa di Santa Lucia.</p></div><a class="button" href="{{ url_for('contacts') }}">Come raggiungerci</a></section>
-{% endblock %}
 
+<section class="ticker" aria-label="I valori di Atelier Doria"><div><span>Cucina a vista</span><i></i><span>Materia locale</span><i></i><span>Tradizione del Sud</span><i></i><span>Gesto contemporaneo</span><i></i></div></section>
+
+<section class="split section story-section">
+  <div class="story-copy reveal"><p class="eyebrow">Danilo Doria</p><h2>Un ritorno che<br><em>diventa cucina</em></h2><p>Dopo l’esperienza a Londra, Danilo torna in Puglia. Non per ripetere la tradizione, ma per rimetterla al centro: fave e cicoria, cozze, lampascioni e pasta diventano un racconto attuale, leggibile, generoso.</p><a class="text-link" href="{{ url_for('about') }}">Entra nella storia</a></div>
+  <div class="story-composition reveal" aria-label="Atelier Doria, Corso Roma 32"><div class="story-number">32</div><div class="story-stamp">Brindisi<br>Puglia</div><p>«Ogni piatto parte da un ricordo e trova una forma nuova.»</p></div>
+</section>
+
+<section class="section menu-preview">
+  <div class="section-heading reveal"><p class="eyebrow">Il menu · estate 2026</p><h2>Piatti con una memoria.<br><em>E qualcosa da raccontare.</em></h2></div>
+  <div class="dish-editorial">
+    {% for section in menu[:3] %}{% set featured = section['items']|selectattr('highlight', 'defined')|first %}
+    <article class="dish-card reveal"><span>0{{ loop.index }}</span><p class="eyebrow">{{ section.category }}</p><h3>{{ featured.name }}</h3><p>{{ featured.description }}</p><strong>{{ featured.price }}</strong></article>
+    {% endfor %}
+  </div>
+  <div class="menu-preview-footer"><p>Menu pubblicato il {{ menu_updated }}. Le proposte possono cambiare secondo mercato e stagione.</p><a class="button button-dark" href="{{ url_for('menu') }}">Guarda tutto il menu</a></div>
+</section>
+
+<section class="experience section-dark section">
+  <div class="experience-title reveal"><p class="eyebrow">Non solo cena</p><h2>Dentro la cucina,<br><em>al centro della sala.</em></h2></div>
+  <div class="experience-list">
+    <article class="reveal"><span>01</span><div><h3>Cucina a vista</h3><p>Il pass, i gesti e il ritmo del servizio diventano parte della serata.</p></div></article>
+    <article class="reveal"><span>02</span><div><h3>Mare e campagna</h3><p>Il porto di Brindisi incontra masserie, orti e ricette familiari.</p></div></article>
+    <article class="reveal"><span>03</span><div><h3>Tavola intima</h3><p>Un ambiente curato, raccolto e informale nel centro della città.</p></div></article>
+  </div>
+</section>
+
+<section class="section reviews-home">
+  <div class="reviews-score reveal"><span>Valutazione attuale</span><strong>8,5</strong><p>/10 su TheFork · 22 recensioni</p><a href="{{ thefork_url }}" target="_blank" rel="noopener">Dati verificati a luglio 2026</a></div>
+  <div class="reviews-copy"><p class="eyebrow">Dicono di noi</p>{% for r in reviews %}<article class="review-line reveal"><blockquote>“{{ r.text }}”</blockquote><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.name }} · {{ r.source }}</a></article>{% endfor %}<a class="text-link" href="{{ url_for('reviews') }}">Tutte le recensioni</a></div>
+</section>
+
+<section class="visit section">
+  <div><p class="eyebrow">Nel cuore di Brindisi</p><h2>Ci vediamo<br>a Corso Roma.</h2><p>Corso Roma, 32 · 72100 Brindisi</p></div>
+  <div class="visit-actions"><a class="button button-light" href="{{ url_for('bookings') }}">Prenota ora</a><a class="text-link light" href="https://www.google.com/maps/dir/?api=1&destination=Corso+Roma+32+Brindisi" target="_blank" rel="noopener">Indicazioni stradali</a></div>
+</section>
+{% endblock %}

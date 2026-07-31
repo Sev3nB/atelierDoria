@@ -32,6 +32,9 @@ def create_app(test_config=None):
             "contact_email": app.config["CONTACT_EMAIL"],
             "whatsapp_number": app.config["WHATSAPP_NUMBER"],
             "instagram_url": "https://www.instagram.com/hostaria_atelierdoria/",
+            "facebook_url": "https://www.facebook.com/p/Atelier-Doria-61567679798300/",
+            "thefork_url": "https://www.thefork.it/ristorante/atelier-doria-r856705",
+            "menu_updated": "12 giugno 2026",
             "hours": load_json("orari.json"),
             "current_year": date.today().year,
         }
@@ -42,6 +45,7 @@ def create_app(test_config=None):
             "index.html",
             reviews=load_json("recensioni.json")[:3],
             instagram_posts=load_json("instagram_posts.json"),
+            menu=load_json("menu.json"),
         )
 
     @app.get("/menu")
@@ -136,4 +140,3 @@ def create_app(test_config=None):
 
 
 app = create_app()
-
