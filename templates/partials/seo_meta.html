@@ -1,0 +1,9 @@
+<meta name="description" content="{{ meta_description|trim }}">
+<meta property="og:title" content="{{ page_title|striptags|trim }}">
+<meta property="og:description" content="{{ meta_description|trim }}">
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="{{ request.url }}">
+<meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='img/logo.svg') }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{{ request.url }}">
