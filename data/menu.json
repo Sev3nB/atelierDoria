@@ -1,8 +1,51 @@
 [
-  {"category": "Antipasti", "items": [{"name": "Selezione stagionale", "description": "Proposte dalla cucina secondo mercato e stagione.", "price": "—"}]},
-  {"category": "Primi", "items": [{"name": "Pasta fresca del giorno", "description": "Tradizione pugliese in evoluzione.", "price": "—"}]},
-  {"category": "Secondi", "items": [{"name": "Pescato del giorno", "description": "Disponibilità e preparazione secondo mercato.", "price": "—"}]},
-  {"category": "Dessert", "items": [{"name": "Dolce dell’Atelier", "description": "Creazione stagionale della cucina.", "price": "—"}]},
-  {"category": "Vini", "items": [{"name": "Cantina pugliese", "description": "Etichette selezionate, disponibili al calice e in bottiglia.", "price": "—"}]}
+  {
+    "category": "Antipasti",
+    "intro": "Radici pugliesi, materia viva e contrasti misurati.",
+    "items": [
+      {"name": "L’antipasto dell’osteria", "description": "Percorso in cinque portate.", "price": "18 €", "highlight": true},
+      {"name": "Cozze alla brindisina", "description": "Un classico della città nella lettura dell’Atelier.", "price": "13 €"},
+      {"name": "Melanzana affumicata", "description": "Pomodoro, mandorla e ricotta forte.", "price": "10 €"},
+      {"name": "Polpette al sugo della nonna", "description": "Memoria domestica, cottura lenta.", "price": "10 €"},
+      {"name": "Frisa", "description": "Burrata di Pezzaviva, gambero rosso e capocollo di Martina Franca.", "price": "14 €", "highlight": true},
+      {"name": "Fave e cicoria", "description": "Pane alle erbe e alici.", "price": "9 €"}
+    ]
+  },
+  {
+    "category": "Primi piatti",
+    "intro": "Pasta, mare e campagna si incontrano senza perdere riconoscibilità.",
+    "items": [
+      {"name": "Paccheri all’osteria", "description": "Salsiccia nostrana marinata, guanciale e fonduta di pecorino.", "price": "16 €", "highlight": true},
+      {"name": "Risotto patate e cozze", "description": "Disponibile per minimo due persone.", "price": "16 €"},
+      {"name": "Raviolo di burrata", "description": "Pomodoro infornato, melanzana fumè e basilico.", "price": "14 €"},
+      {"name": "Tagliolino cacio e pepe", "description": "Gambero rosso e lime.", "price": "18 €", "highlight": true},
+      {"name": "Spaghettone aglio e olio alla mugnaia", "description": "Con triglia.", "price": "17 €"},
+      {"name": "Tubetti, seppia e piselli", "description": "Un incontro diretto tra orto e Adriatico.", "price": "17 €"}
+    ]
+  },
+  {
+    "category": "Secondi piatti",
+    "intro": "Brace, pescato e carni del territorio.",
+    "items": [
+      {"name": "Maialino", "description": "Fave e verdure di campo.", "price": "17 €"},
+      {"name": "Agnello", "description": "Lampascioni e pecorino.", "price": "18 €"},
+      {"name": "Bombette pugliesi", "description": "Patate al rosmarino, peperoni arrosto, canestrato e miele d’Otranto.", "price": "16 €", "highlight": true},
+      {"name": "Merluzzo", "description": "Colatura di provola, melanzana e pomodoro vanigliato.", "price": "18 €"},
+      {"name": "Gallinella", "description": "Ciambotta pugliese.", "price": "19 €"},
+      {"name": "Grigliata del porto alla brace", "description": "Selezione di mare secondo disponibilità.", "price": "20 €", "highlight": true},
+      {"name": "Fritto fresco di mare", "description": "Pescato e frittura espressa.", "price": "17 €"}
+    ]
+  },
+  {
+    "category": "Dolci di nostra produzione",
+    "intro": "Finali essenziali, preparati in casa.",
+    "items": [
+      {"name": "Piccola pasticceria", "description": "Assortimento dell’Atelier.", "price": "7 €"},
+      {"name": "Tiramisù", "description": "Il classico della casa.", "price": "7 €"},
+      {"name": "Cheesecake", "description": "Preparazione artigianale.", "price": "7 €"},
+      {"name": "Mandorla", "description": "Omaggio alla Puglia.", "price": "7 €"},
+      {"name": "Babà", "description": "Lievitato e bagna aromatica.", "price": "7 €"},
+      {"name": "Cioccolato", "description": "Cremoso e gelato alla vaniglia.", "price": "7 €"}
+    ]
+  }
 ]
-
