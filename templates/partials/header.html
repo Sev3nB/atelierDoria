@@ -1,0 +1,12 @@
+<header class="site-header">
+  <a class="brand" href="{{ url_for('home') }}" aria-label="Atelier Doria, home">
+    <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Atelier Doria Osteria Contemporanea" width="240" height="74">
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><span class="sr-only">Apri menu</span></button>
+  <nav id="main-nav" class="main-nav" aria-label="Navigazione principale">
+    <a href="{{ url_for('home') }}">Home</a><a href="{{ url_for('menu') }}">Menu</a>
+    <a href="{{ url_for('about') }}">Chi siamo</a><a href="{{ url_for('gallery') }}">Galleria</a>
+    <a href="{{ url_for('reviews') }}">Recensioni</a><a href="{{ url_for('contacts') }}">Contatti</a>
+    <a class="button button-small" href="{{ url_for('bookings') }}">Prenota</a>
+  </nav>
+</header>

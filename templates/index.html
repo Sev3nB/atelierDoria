@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-content reveal"><p class="eyebrow">Osteria contemporanea · Brindisi</p><h1>I sapori di una volta, in una nuova veste.</h1><p>Radici pugliesi, ingredienti di stagione e una cucina aperta al presente.</p><div class="actions"><a class="button" href="{{ url_for('bookings') }}">Prenota ora</a><a class="text-link light" href="{{ url_for('menu') }}">Scopri il menu</a></div></div>
+</section>
+<section class="split section">
+  <div class="reveal"><p class="eyebrow">La nostra storia</p><h2>Il ritorno alle radici</h2><p>Dopo l’esperienza a Londra, Danilo Doria torna in Puglia e porta a Brindisi una cucina personale: riconoscibile nella memoria, precisa nel gesto, contemporanea nello sguardo.</p><a class="text-link" href="{{ url_for('about') }}">Conosci l’Atelier</a></div>
+  <div class="art-frame art-olive" role="img" aria-label="Composizione astratta ispirata agli ulivi e alla ceramica pugliese"></div>
+</section>
+<section class="section section-dark"><div class="section-heading"><p class="eyebrow">Dalla cucina</p><h2>Materia, stagione, territorio.</h2></div><div class="instagram-grid">{% for p in instagram_posts %}<a href="{{ p.url }}" target="_blank" rel="noopener"><img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.alt }}" width="600" height="600" loading="lazy"><span>{{ p.caption }}</span></a>{% endfor %}</div><a class="button button-outline" href="{{ instagram_url }}" target="_blank" rel="noopener">Seguici su Instagram</a></section>
+<section class="section"><div class="section-heading"><p class="eyebrow">Dicono di noi</p><h2>Una tavola da ricordare</h2></div><div class="card-grid">{% for r in reviews %}<article class="review-card"><span class="stars" aria-label="{{ r.rating }} stelle">{{ "★" * r.rating }}</span><blockquote>“{{ r.text }}”</blockquote><p>{{ r.name }} · {{ r.source }}</p></article>{% endfor %}</div><a class="text-link" href="{{ url_for('reviews') }}">Leggi tutte le recensioni</a></section>
+<section class="visit section"><div><p class="eyebrow">Nel cuore di Brindisi</p><h2>Corso Roma, 32</h2><p>A pochi passi dalla Chiesa di Santa Lucia.</p></div><a class="button" href="{{ url_for('contacts') }}">Come raggiungerci</a></section>
+{% endblock %}
+
