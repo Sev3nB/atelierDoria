@@ -1,7 +1,6 @@
 <footer class="site-footer">
   <div><p class="wordmark">Atelier Doria</p><p>Osteria Contemporanea</p><p>Corso Roma, 32 · Brindisi</p></div>
   <div><p class="eyebrow">Contatti</p>{% if phone_uri %}<a href="tel:{{ phone_uri }}">{{ phone_display }}</a>{% else %}<span>{{ phone_display }}</span>{% endif %}<br>{% if contact_email %}<a href="mailto:{{ contact_email }}">{{ contact_email }}</a>{% endif %}</div>
-  <div><p class="eyebrow">Seguici</p><a href="{{ instagram_url }}" target="_blank" rel="noopener">@hostaria_atelierdoria</a></div>
+  <div><p class="eyebrow">Seguici</p><a href="{{ instagram_url }}" target="_blank" rel="noopener">Instagram</a><br><a href="{{ facebook_url }}" target="_blank" rel="noopener">Facebook</a><br><a href="{{ thefork_url }}" target="_blank" rel="noopener">TheFork</a></div>
   <p class="footer-bottom">© {{ current_year }} Atelier Doria · Corso Roma, 32, Brindisi</p>
 </footer>
-
