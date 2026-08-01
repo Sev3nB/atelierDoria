@@ -45,3 +45,12 @@ addEventListener("scroll", () => {
   ticking = true;
 }, { passive: true });
 updateScrollUI();
+
+const backToTop = document.querySelector(".back-to-top");
+const updateBackToTop = () => backToTop?.classList.toggle("visible", window.scrollY > 520);
+addEventListener("scroll", updateBackToTop, { passive: true });
+backToTop?.addEventListener("click", () => window.scrollTo({
+  top: 0,
+  behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+}));
+updateBackToTop();

@@ -1,0 +1,74 @@
+(() => {
+  const translations = {
+    "Vai al contenuto":"Skip to content","Apri menu":"Open menu","Navigazione principale":"Main navigation","Chi siamo":"About us","Galleria":"Gallery","Recensioni":"Reviews","Contatti":"Contact","Prenota":"Book","Prenota un tavolo":"Book a table","Osteria Contemporanea":"Contemporary Osteria","Seguici":"Follow us",
+    "Radici":"Roots","Presente":"Present","La tradizione":"Tradition","non sta ferma.":"never stands still.","La Puglia di Danilo Doria: sapori onesti, cucina a vista e piatti che ricordano da dove veniamo.":"Danilo Doria’s Puglia: honest flavours, an open kitchen and dishes that remember where we come from.","Scopri il menu":"Discover the menu","su 10 · TheFork":"out of 10 · TheFork","22 recensioni":"22 reviews","Centro storico":"Historic centre","Cucina a vista":"Open kitchen","Materia locale":"Local ingredients","Tradizione del Sud":"Southern tradition","Gesto contemporaneo":"Contemporary touch",
+    "Un ritorno che":"A homecoming that","diventa cucina":"becomes cuisine","Dopo l’esperienza a Londra, Danilo torna in Puglia. Non per ripetere la tradizione, ma per rimetterla al centro: fave e cicoria, cozze, lampascioni e pasta diventano un racconto attuale, leggibile, generoso.":"After his experience in London, Danilo returns to Puglia. Not to repeat tradition, but to place it back at the centre: fava beans and chicory, mussels, lampascioni and pasta become a current, clear and generous story.","Entra nella storia":"Read our story","Il menu · estate 2026":"The menu · summer 2026","Piatti con una memoria.":"Dishes with a memory.","E qualcosa da raccontare.":"And something to tell.","Menu pubblicato il":"Menu published on","Le proposte possono cambiare secondo mercato e stagione.":"Dishes may change with the market and the season.","Guarda tutto il menu":"View the full menu",
+    "Non solo cena":"More than dinner","Dentro la cucina,":"Inside the kitchen,","al centro della sala.":"at the heart of the dining room.","Il pass, i gesti e il ritmo del servizio diventano parte della serata.":"The pass, the gestures and the rhythm of service become part of the evening.","Mare e campagna":"Sea and countryside","Il porto di Brindisi incontra masserie, orti e ricette familiari.":"Brindisi’s harbour meets farmhouses, gardens and family recipes.","Tavola intima":"An intimate table","Un ambiente curato, raccolto e informale nel centro della città.":"A thoughtful, intimate and informal setting in the city centre.","Il mare Adriatico, portato a tavola.":"The Adriatic Sea, brought to the table.","Valutazione attuale":"Current rating","/10 su TheFork · 22 recensioni":"/10 on TheFork · 22 reviews","Dati verificati a luglio 2026":"Data verified in July 2026","Dicono di noi":"What guests say","Tutte le recensioni":"All reviews","Nel cuore di Brindisi":"In the heart of Brindisi","Ci vediamo":"See you","a Corso Roma.":"on Corso Roma.","Prenota ora":"Book now","Indicazioni stradali":"Directions",
+    "Il menu":"The menu","Tradizione pugliese, mare Adriatico e cucina contemporanea. Prezzo medio indicativo 25 €.":"Puglian tradition, the Adriatic Sea and contemporary cuisine. Indicative average price: €25.","Categorie del menu":"Menu categories","Materia, stagione, memoria.":"Ingredients, season, memory.","La carta segue il mercato e il ritmo della cucina. Chiedi sempre le proposte disponibili al tavolo.":"The menu follows the market and the rhythm of the kitchen. Always ask which dishes are available.","firma":"signature","Trasparenza:":"Transparency:","menu e prezzi ripresi dalla scheda TheFork del ristorante, ultimo aggiornamento dichiarato 12 giugno 2026. Disponibilità e composizione possono variare.":"menu and prices sourced from the restaurant’s TheFork listing, last declared update 12 June 2026. Availability and composition may vary.","Verifica il menu alla fonte":"Check the source menu","Comunica allergie e intolleranze prima dell’ordine. Il personale può fornire il registro allergeni e indicare eventuali variazioni.":"Tell us about allergies and intolerances before ordering. Staff can provide the allergen register and explain any changes.",
+    "Antipasti":"Starters","Primi piatti":"First courses","Secondi piatti":"Main courses","Dolci di nostra produzione":"House-made desserts","Radici pugliesi, materia viva e contrasti misurati.":"Puglian roots, vibrant ingredients and measured contrasts.","Pasta, mare e campagna si incontrano senza perdere riconoscibilità.":"Pasta, sea and countryside meet without losing their identity.","Brace, pescato e carni del territorio.":"Charcoal cooking, local catch and regional meats.","Finali essenziali, preparati in casa.":"Essential endings, made in-house.",
+    "L’antipasto dell’osteria":"The osteria starter","Percorso in cinque portate.":"A five-course journey.","Cozze alla brindisina":"Brindisi-style mussels","Un classico della città nella lettura dell’Atelier.":"A city classic, interpreted by Atelier.","Melanzana affumicata":"Smoked aubergine","Pomodoro, mandorla e ricotta forte.":"Tomato, almond and strong ricotta.","Polpette al sugo della nonna":"Grandmother’s meatballs in tomato sauce","Memoria domestica, cottura lenta.":"Homestyle memories, slow cooked.","Frisa":"Frisa bread","Burrata di Pezzaviva, gambero rosso e capocollo di Martina Franca.":"Pezzaviva burrata, red prawn and Martina Franca capocollo.","Fave e cicoria":"Fava beans and chicory","Pane alle erbe e alici.":"Herb bread and anchovies.",
+    "Paccheri all’osteria":"Osteria paccheri","Salsiccia nostrana marinata, guanciale e fonduta di pecorino.":"Marinated local sausage, guanciale and pecorino fondue.","Risotto patate e cozze":"Potato and mussel risotto","Disponibile per minimo due persone.":"Available for a minimum of two people.","Raviolo di burrata":"Burrata raviolo","Pomodoro infornato, melanzana fumè e basilico.":"Roasted tomato, smoked aubergine and basil.","Tagliolino cacio e pepe":"Cacio e pepe tagliolino","Gambero rosso e lime.":"Red prawn and lime.","Spaghettone aglio e olio alla mugnaia":"Miller-style garlic and oil spaghettone","Con triglia.":"With red mullet.","Tubetti, seppia e piselli":"Tubetti pasta, cuttlefish and peas","Un incontro diretto tra orto e Adriatico.":"A direct meeting of garden and Adriatic Sea.",
+    "Maialino":"Suckling pig","Fave e verdure di campo.":"Fava beans and wild greens.","Agnello":"Lamb","Lampascioni e pecorino.":"Lampascioni and pecorino.","Bombette pugliesi":"Puglian bombette","Patate al rosmarino, peperoni arrosto, canestrato e miele d’Otranto.":"Rosemary potatoes, roasted peppers, canestrato cheese and Otranto honey.","Merluzzo":"Cod","Colatura di provola, melanzana e pomodoro vanigliato.":"Provola sauce, aubergine and vanilla tomato.","Gallinella":"Red gurnard","Ciambotta pugliese.":"Puglian ciambotta.","Grigliata del porto alla brace":"Charcoal-grilled harbour selection","Selezione di mare secondo disponibilità.":"Seafood selection according to availability.","Fritto fresco di mare":"Fresh seafood fry","Pescato e frittura espressa.":"Fresh catch, fried to order.",
+    "Piccola pasticceria":"Petit fours","Assortimento dell’Atelier.":"Atelier selection.","Tiramisù":"Tiramisu","Il classico della casa.":"The house classic.","Preparazione artigianale.":"Handcrafted in-house.","Mandorla":"Almond","Omaggio alla Puglia.":"A tribute to Puglia.","Babà":"Rum baba","Lievitato e bagna aromatica.":"Leavened pastry with aromatic syrup.","Cioccolato":"Chocolate","Cremoso e gelato alla vaniglia.":"Chocolate crémeux and vanilla ice cream.",
+    "Vieni a trovarci":"Come and visit","Nel centro di Brindisi, tra la sala e la cucina a vista.":"In central Brindisi, between the dining room and the open kitchen.","Passa, chiama":"Drop by, call","o scrivici.":"or write to us.","Pranzo e cena":"Lunch and dinner","Disponibilità aggiornata in fase di prenotazione":"Availability confirmed when booking","Asporto":"Takeaway","Verificare telefonicamente":"Please check by phone","Messaggi":"Messages","Scrivici":"Write to us","Messaggio ricevuto.":"Message received.","Nome *":"Name *","Messaggio *":"Message *","Invia richiesta":"Send request","Apri Corso Roma 32 su Google Maps":"Open Corso Roma 32 in Google Maps","Apri le indicazioni":"Get directions",
+    "La storia":"Our story","Partire. Imparare. Tornare.":"Leave. Learn. Return.","Una cucina che sa da dove viene":"A cuisine that knows where it comes from","Danilo Doria porta nel suo Atelier l’esperienza maturata a Londra e il desiderio di ritrovare la Puglia. Il risultato è una cucina che non copia la tradizione: la ascolta, ne conserva l’anima e le dà una forma nuova.":"Danilo Doria brings to his Atelier the experience gained in London and the desire to rediscover Puglia. The result is a cuisine that does not copy tradition: it listens to it, preserves its soul and gives it a new form.","La cucina a vista rende ogni gesto parte dell’esperienza. Ingredienti locali, stagionalità e accoglienza definiscono una tavola intima, gioviale, curata.":"The open kitchen makes every gesture part of the experience. Local ingredients, seasonality and hospitality define an intimate, convivial and thoughtful table.","La filosofia":"The philosophy","Riconoscere un sapore.":"Recognise a flavour.","Scoprirlo di nuovo.":"Discover it again.",
+    "La tua tavola":"Your table","Tre passaggi: compila, apri WhatsApp, attendi la conferma del ristorante.":"Three steps: fill in the form, open WhatsApp and wait for the restaurant’s confirmation.","Scegli":"Choose","Invia":"Send","Ricevi conferma":"Get confirmation","Nome e cognome *":"Full name *","Telefono":"Phone","Data *":"Date *","Ora *":"Time *","Persone *":"Guests *","Note o allergie":"Notes or allergies","Segnala qui allergie, intolleranze o esigenze particolari":"Tell us about allergies, intolerances or special requirements","Invia richiesta su WhatsApp":"Send request via WhatsApp","Informazioni":"Information","Prima di prenotare":"Before booking","La richiesta non equivale a una conferma. Attendi la risposta del ristorante.":"A request is not a confirmation. Please wait for the restaurant’s reply.","Disponibilità":"Availability","Per gruppi numerosi o cene private, indica il numero di ospiti e il tipo di occasione nelle note.":"For large groups or private dinners, include the number of guests and type of occasion in the notes.",
+    "Occasioni speciali":"Special occasions","Eventi e cene private":"Events and private dinners","Menu su misura, degustazioni e tavole raccolte nel cuore di Brindisi.":"Bespoke menus, tastings and intimate tables in the heart of Brindisi.","Costruiamo insieme la tua esperienza":"Let’s create your experience together","Raccontaci data, numero di ospiti e idea dell’evento.":"Tell us the date, number of guests and your idea for the event.","Contattaci":"Contact us","Dentro l’Atelier":"Inside the Atelier","Atmosfera · immagine editoriale":"Atmosphere · editorial image","Mare · immagine editoriale":"Sea · editorial image","Esperienze verificate":"Verified experiences","Le vostre parole":"Your words","Le recensioni sono estratti sintetici collegati alla piattaforma originale.":"Reviews are concise excerpts linked to the original platform.","Leggi su TheFork":"Read on TheFork","Pagina non trovata":"Page not found","Questa pagina non è in menu.":"This page is not on the menu.","Torna alla home":"Return home","La cucina si è fermata un momento.":"The kitchen has paused for a moment.","Torna all’inizio":"Back to top"
+  };
+
+  const titleTranslations = {
+    "Atelier Doria | Osteria contemporanea a Brindisi":"Atelier Doria | Contemporary Osteria in Brindisi",
+    "Menu 2026 | Atelier Doria Brindisi":"2026 Menu | Atelier Doria Brindisi",
+    "Contatti | Atelier Doria Brindisi":"Contact | Atelier Doria Brindisi",
+    "Chi siamo | Atelier Doria":"About us | Atelier Doria",
+    "Prenotazioni | Atelier Doria":"Bookings | Atelier Doria",
+    "Eventi e cene private | Atelier Doria":"Events and private dinners | Atelier Doria",
+    "Galleria | Atelier Doria":"Gallery | Atelier Doria",
+    "Recensioni | Atelier Doria Brindisi":"Reviews | Atelier Doria Brindisi",
+    "Pagina non trovata | Atelier Doria":"Page not found | Atelier Doria",
+    "Errore | Atelier Doria":"Error | Atelier Doria"
+  };
+  const originalText = new WeakMap();
+  const originalAttrs = new WeakMap();
+  const translateText = (value) => {
+    const clean = value.trim();
+    if (translations[clean]) return value.replace(clean, translations[clean]);
+    return value
+      .replace(/^Aggiornato il /, "Updated on ")
+      .replace(/ recensioni · luglio 2026$/, " reviews · July 2026")
+      .replace(/^Chiama /, "Call ");
+  };
+  const applyLanguage = (language) => {
+    document.documentElement.lang = language;
+    document.querySelectorAll("body *:not(script):not(style)").forEach((element) => {
+      element.childNodes.forEach((node) => {
+        if (node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) return;
+        if (!originalText.has(node)) originalText.set(node, node.textContent);
+        node.textContent = language === "en" ? translateText(originalText.get(node)) : originalText.get(node);
+      });
+      ["aria-label", "title", "placeholder"].forEach((attribute) => {
+        if (!element.hasAttribute(attribute)) return;
+        if (!originalAttrs.has(element)) originalAttrs.set(element, {});
+        const stored = originalAttrs.get(element);
+        if (!(attribute in stored)) stored[attribute] = element.getAttribute(attribute);
+        element.setAttribute(attribute, language === "en" ? translateText(stored[attribute]) : stored[attribute]);
+      });
+    });
+    const originalTitle = document.documentElement.dataset.originalTitle || document.title;
+    document.documentElement.dataset.originalTitle = originalTitle;
+    document.title = language === "en" ? (titleTranslations[originalTitle] || originalTitle) : originalTitle;
+    document.querySelectorAll(".language-current").forEach((el) => el.textContent = language === "en" ? "EN" : "IT");
+    document.querySelectorAll(".language-other").forEach((el) => el.textContent = language === "en" ? "IT" : "EN");
+    document.querySelectorAll(".language-toggle").forEach((button) => {
+      button.setAttribute("aria-label", language === "en" ? "Passa all’italiano" : "Switch to English");
+      button.setAttribute("title", language === "en" ? "Passa all’italiano" : "Switch to English");
+    });
+    localStorage.setItem("atelier-language", language);
+  };
+  const preferred = localStorage.getItem("atelier-language") || "it";
+  applyLanguage(preferred);
+  document.querySelectorAll(".language-toggle").forEach((button) => button.addEventListener("click", () => {
+    applyLanguage(document.documentElement.lang === "it" ? "en" : "it");
+  }));
+  window.atelierLanguage = () => document.documentElement.lang;
+})();
