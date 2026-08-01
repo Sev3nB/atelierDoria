@@ -30,7 +30,11 @@
   {% include "partials/header.html" %}
   <main id="contenuto">{% block content %}{% endblock %}</main>
   {% include "partials/footer.html" %}
+  <button class="back-to-top" type="button" aria-label="Torna all’inizio" title="Torna all’inizio">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"/></svg>
+  </button>
   <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/i18n.js') }}" defer></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>
