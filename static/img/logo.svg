@@ -1,8 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 150" role="img" aria-labelledby="title desc">
-  <title id="title">Atelier Doria</title><desc id="desc">Osteria Contemporanea</desc>
-  <rect width="520" height="150" fill="#f5efe4"/>
-  <text x="260" y="82" text-anchor="middle" font-family="Georgia,serif" font-size="52" letter-spacing="2" fill="#2f3b2c">ATELIER DORIA</text>
-  <circle cx="355" cy="64" r="19" fill="none" stroke="#c9a24b" stroke-width="2"/>
-  <path d="M355 39v50M330 64h50M338 47l34 34M372 47l-34 34" stroke="#c9a24b" stroke-width="2"/>
-  <text x="260" y="113" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" letter-spacing="6" fill="#7b2d26">OSTERIA CONTEMPORANEA</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">Atelier Doria</title>
+  <desc id="logo-desc">Osteria contemporanea</desc>
+  <g fill="none" stroke="#b49a48" stroke-width="2">
+    <circle cx="320" cy="52" r="47"/>
+    <path d="M320 4v96M313 9h14M313 18h14M313 27h14"/>
+  </g>
+  <text x="303" y="79" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-style="italic" fill="#15191a">A</text>
+  <text x="342" y="79" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="78" fill="#15191a">D</text>
+  <text x="320" y="132" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="39" letter-spacing="7" fill="#15191a">ATELIER DORIA</text>
+  <text x="320" y="163" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" letter-spacing="6.5" fill="#9f873b">OSTERIA CONTEMPORANEA</text>
 </svg>

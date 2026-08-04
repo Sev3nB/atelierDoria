@@ -16,8 +16,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(30, 26, 22, .92) 0%, rgba(30, 26, 22, .68) 48%, rgba(30, 26, 22, .42) 100%),
-    linear-gradient(0deg, rgba(30, 26, 22, .48), transparent 55%);
+    linear-gradient(90deg, rgba(21, 25, 26, .92) 0%, rgba(21, 25, 26, .68) 48%, rgba(21, 25, 26, .42) 100%),
+    linear-gradient(0deg, rgba(21, 25, 26, .48), transparent 55%);
 }
 .hero-media img,
 .hero-media video {
@@ -50,7 +50,7 @@
     display: none;
   }
   .hero-media::after {
-    background: linear-gradient(90deg, rgba(30, 26, 22, .92), rgba(30, 26, 22, .56));
+    background: linear-gradient(90deg, rgba(21, 25, 26, .92), rgba(21, 25, 26, .56));
   }
 }
 @media (prefers-reduced-motion: reduce) {

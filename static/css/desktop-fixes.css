@@ -4,7 +4,7 @@
   justify-content: center;
   gap: .55rem;
   padding: .55rem .65rem;
-  border: 1px solid rgba(30, 26, 22, .18);
+  border: 1px solid rgba(21, 25, 26, .18);
   border-radius: 999px;
   background: rgba(255, 255, 255, .3);
 }
@@ -14,9 +14,9 @@
   width: 28px;
   height: 20px;
   overflow: hidden;
-  border: 1px solid rgba(30, 26, 22, .22);
+  border: 1px solid rgba(21, 25, 26, .22);
   border-radius: 3px;
-  box-shadow: 0 2px 7px rgba(30, 26, 22, .14);
+  box-shadow: 0 2px 7px rgba(21, 25, 26, .14);
 }
 .language-flag-image {
   grid-area: 1 / 1;
@@ -50,13 +50,13 @@ html[lang="en"] .flag-it { display: block; }
   gap: 1rem;
   min-width: 0;
   padding: 1.45rem clamp(1rem, 2.2vw, 2.2rem);
-  border-left: 1px solid rgba(245, 239, 228, .15);
+  border-left: 1px solid rgba(244, 241, 233, .15);
   font: 500 clamp(1rem, 1.35vw, 1.28rem) / 1.15 var(--serif);
   letter-spacing: -.015em;
   text-transform: none;
 }
 .ticker-value:last-child {
-  border-right: 1px solid rgba(245, 239, 228, .15);
+  border-right: 1px solid rgba(244, 241, 233, .15);
 }
 .ticker-value small {
   align-self: flex-start;
