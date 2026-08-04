@@ -1,6 +1,50 @@
 [
-  {"image": "img/gallery/piatto-1.svg", "alt": "Piatto della cucina pugliese contemporanea di Atelier Doria", "caption": "La stagione detta il menu.", "url": "https://www.instagram.com/hostaria_atelierdoria/"},
-  {"image": "img/gallery/piatto-2.svg", "alt": "Dettaglio della cucina a vista di Atelier Doria a Brindisi", "caption": "Gesti precisi, radici pugliesi.", "url": "https://www.instagram.com/hostaria_atelierdoria/"},
-  {"image": "img/gallery/piatto-3.svg", "alt": "Tavola apparecchiata nell’osteria contemporanea Atelier Doria", "caption": "Una tavola intima nel cuore di Brindisi.", "url": "https://www.instagram.com/hostaria_atelierdoria/"}
+  {
+    "image": "img/gallery/piatto-1.svg",
+    "alt": "Piatto della cucina pugliese contemporanea di Atelier Doria",
+    "caption": "La stagione detta il menu.",
+    "url": "https://www.instagram.com/hostaria_atelierdoria/"
+  },
+  {
+    "image": "img/gallery/piatto-2.svg",
+    "alt": "Dettaglio della cucina a vista di Atelier Doria a Brindisi",
+    "caption": "Gesti precisi, radici pugliesi.",
+    "url": "https://www.instagram.com/hostaria_atelierdoria/"
+  },
+  {
+    "image": "img/gallery/piatto-3.svg",
+    "alt": "Tavola apparecchiata nell’osteria contemporanea Atelier Doria",
+    "caption": "Una tavola intima nel cuore di Brindisi.",
+    "url": "https://www.instagram.com/hostaria_atelierdoria/"
+  },
+  {
+    "image": "img/gallery/cucina.webp",
+    "alt": "La brigata al lavoro nella cucina di Atelier Doria",
+    "caption": "Passione e materia prima al centro.",
+    "url": "https://www.instagram.com/hostaria_atelierdoria/"
+  },
+  {
+    "image": "img/gallery/tavolo.webp",
+    "alt": "Dettaglio dell'arredo e della mise en place di Atelier Doria",
+    "caption": "L'arte dell'accoglienza, ogni sera.",
+    "url": "https://www.instagram.com/hostaria_atelierdoria/"
+  },
+  {
+    "image": "img/gallery/vini.webp",
+    "alt": "La selezione di vini pugliesi e nazionali di Atelier Doria",
+    "caption": "Etichette ricercate da abbinare ai nostri piatti.",
+    "url": "https://www.instagram.com/hostaria_atelierdoria/"
+  },
+  {
+    "image": "img/gallery/vini1.webp",
+    "alt": "Dettaglio delle bottiglie nella cantina di Atelier Doria a Brindisi",
+    "caption": "Racconti in calice, tra territorio e scoperta.",
+    "url": "https://www.instagram.com/hostaria_atelierdoria/"
+  },
+  {
+    "image": "img/gallery/esterni.webp",
+    "alt": "Ingresso ed esterni di Hostaria Atelier Doria a Brindisi",
+    "caption": "Un angolo di gusto tra i vicoli di Brindisi.",
+    "url": "https://www.instagram.com/hostaria_atelierdoria/"
+  }
 ]
-
