@@ -54,3 +54,9 @@ backToTop?.addEventListener("click", () => window.scrollTo({
   behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
 }));
 updateBackToTop();
+
+const heroVideo = document.querySelector("[data-hero-video]");
+if (heroVideo && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  heroVideo.pause();
+  heroVideo.removeAttribute("autoplay");
+}

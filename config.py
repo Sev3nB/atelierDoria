@@ -7,12 +7,14 @@ class Config:
     WHATSAPP_NUMBER = os.getenv("WHATSAPP_NUMBER", "393298962703")
     PHONE_DISPLAY = os.getenv("PHONE_DISPLAY", "+39 329 896 2703")
     PHONE_URI = os.getenv("PHONE_URI", "+393298962703")
-    CONTACT_EMAIL = os.getenv("CONTACT_EMAIL", "")
+    CONTACT_EMAIL = os.getenv("CONTACT_EMAIL", "atelierdoria@libero.it")
     GOOGLE_REVIEW_URL = os.getenv("GOOGLE_REVIEW_URL", "")
     GOOGLE_MAPS_EMBED_URL = os.getenv(
         "GOOGLE_MAPS_EMBED_URL",
         "https://www.google.com/maps?q=Corso+Roma+32,+Brindisi&output=embed",
     )
+    HERO_VIDEO_MP4 = os.getenv("HERO_VIDEO_MP4", "")
+    HERO_VIDEO_WEBM = os.getenv("HERO_VIDEO_WEBM", "")
     INSTAGRAM_TOKEN = os.getenv("INSTAGRAM_TOKEN", "")
     INSTAGRAM_API_URL = os.getenv("INSTAGRAM_API_URL", "")
     RESTAURANT_RATING = os.getenv("RESTAURANT_RATING", "8.5")

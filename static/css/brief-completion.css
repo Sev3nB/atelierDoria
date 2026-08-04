@@ -1,0 +1,60 @@
+/* Brief completion: optional cinematic hero with a lightweight image fallback. */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-content,
+.hero-proof,
+.hero-note,
+.hero-orbit {
+  z-index: 1;
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(30, 26, 22, .92) 0%, rgba(30, 26, 22, .68) 48%, rgba(30, 26, 22, .42) 100%),
+    linear-gradient(0deg, rgba(30, 26, 22, .48), transparent 55%);
+}
+.hero-media img,
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-media video {
+  position: absolute;
+  inset: 0;
+}
+.hero:not(.hero-with-video) .hero-media {
+  opacity: .42;
+}
+.hero-with-video {
+  background: var(--dark);
+}
+.hero-with-video::before,
+.hero-with-video::after {
+  opacity: .28;
+}
+.footer-legal p {
+  margin: .18rem 0;
+}
+.footer-legal .eyebrow {
+  margin-bottom: .65rem;
+}
+@media (max-width: 600px) {
+  .hero-media video {
+    display: none;
+  }
+  .hero-media::after {
+    background: linear-gradient(90deg, rgba(30, 26, 22, .92), rgba(30, 26, 22, .56));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-media video {
+    display: none;
+  }
+}
