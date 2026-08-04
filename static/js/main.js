@@ -56,7 +56,35 @@ backToTop?.addEventListener("click", () => window.scrollTo({
 updateBackToTop();
 
 const heroVideo = document.querySelector("[data-hero-video]");
-if (heroVideo && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (heroVideo && reducedMotion) {
   heroVideo.pause();
   heroVideo.removeAttribute("autoplay");
+} else if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.playsInline = true;
+
+  const interactionEvents = ["pointerdown", "touchstart", "keydown"];
+  const clearPlaybackFallback = () =>
+    interactionEvents.forEach((eventName) =>
+      document.removeEventListener(eventName, resumeHeroVideo),
+    );
+  const resumeHeroVideo = () => {
+    const playback = heroVideo.play();
+    if (playback?.then) playback.then(clearPlaybackFallback).catch(() => {});
+  };
+  const enablePlaybackFallback = () =>
+    interactionEvents.forEach((eventName) =>
+      document.addEventListener(eventName, resumeHeroVideo, {
+        once: true,
+        passive: true,
+      }),
+    );
+  const playback = heroVideo.play();
+  if (playback?.catch) playback.catch(enablePlaybackFallback);
+
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden && heroVideo.paused) resumeHeroVideo();
+  });
 }
