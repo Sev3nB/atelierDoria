@@ -1,14 +1,23 @@
 :root {
-  /* Palette derived from the Atelier Doria logo */
-  --wine: #9f873b;
-  --olive: #202526;
-  --gold: #b49a48;
-  --cream: #f4f1e9;
-  --dark: #15191a;
-  --neutral: #d7d0c2;
+  /* Palette extracted from the supplied Atelier Doria logo */
+  --teal: #0b636b;
+  --deep-teal: #063f44;
+  --bronze: #8f795d;
+  --bronze-dark: #6f5b43;
+  --sand: #d5c2a3;
+  --cream: #f7f4ee;
+  --warm-paper: #ebe5da;
+  --dark: #172426;
+  --neutral: #d8d2c7;
   --white: #fffdf8;
-  --brass-dark: #806b2d;
-  --ink-soft: #34393a;
+
+  /* Backward-compatible aliases used throughout the existing theme */
+  --wine: var(--teal);
+  --olive: var(--deep-teal);
+  --gold: var(--bronze);
+  --brass-dark: var(--bronze-dark);
+  --ink-soft: #33484a;
+
   --serif: "Fraunces", Georgia, serif;
   --sans: "Inter", Arial, sans-serif;
   --space: clamp(5rem, 10vw, 9rem);
