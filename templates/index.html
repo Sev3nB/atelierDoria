@@ -4,11 +4,11 @@
   <div class="hero-media" aria-hidden="true">
     <img src="{{ url_for('static', filename='img/editorial/sala-cucina.webp') }}" alt="" width="1600" height="1067"
       fetchpriority="high">
-    {% if hero_video_mp4 or hero_video_webm %}<video data-hero-video autoplay muted loop playsinline preload="none"
-      poster="{{ url_for('static', filename='img/editorial/sala-cucina.webp') }}">{% if hero_video_webm %}
-      <source src="{{ hero_video_webm }}" type="video/webm">{% endif %}{% if hero_video_mp4 %}
-      <source src="{{ hero_video_mp4 }}" type="video/mp4">{% endif %}
-    </video>{% endif %}
+    <video data-hero-video autoplay muted loop playsinline preload="none"
+      poster="{{ url_for('static', filename='img/editorial/sala-cucina.webp') }}">
+      <source src="{{ url_for('static', filename='img/hero_video.webm') }}" type="video/webm">
+
+    </video>
   </div>
   <div class="hero-orbit" aria-hidden="true"><span>Radici</span><i></i><span>Presente</span></div>
   <div class="hero-content reveal">
