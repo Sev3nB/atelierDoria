@@ -35,6 +35,8 @@ def create_app(test_config=None):
             "facebook_url": "https://www.facebook.com/p/Atelier-Doria-61567679798300/",
             "thefork_url": "https://www.thefork.it/ristorante/atelier-doria-r856705",
             "menu_updated": "12 giugno 2026",
+            "hero_video_mp4": app.config["HERO_VIDEO_MP4"],
+            "hero_video_webm": app.config["HERO_VIDEO_WEBM"],
             "hours": load_json("orari.json"),
             "current_year": date.today().year,
         }
