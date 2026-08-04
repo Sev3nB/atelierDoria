@@ -56,7 +56,7 @@ def create_app(test_config=None):
 
     @app.get("/chi-siamo")
     def about():
-        return render_template("chi_siamo.html")
+        return render_template("chi_siamo.html", photos=load_json("instagram_posts.json"))
 
     @app.get("/recensioni")
     def reviews():
