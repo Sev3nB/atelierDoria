@@ -1,23 +1,5 @@
 [
   {
-    "image": "img/gallery/piatto-1.svg",
-    "alt": "Piatto della cucina pugliese contemporanea di Atelier Doria",
-    "caption": "La stagione detta il menu.",
-    "url": "https://www.instagram.com/hostaria_atelierdoria/"
-  },
-  {
-    "image": "img/gallery/piatto-2.svg",
-    "alt": "Dettaglio della cucina a vista di Atelier Doria a Brindisi",
-    "caption": "Gesti precisi, radici pugliesi.",
-    "url": "https://www.instagram.com/hostaria_atelierdoria/"
-  },
-  {
-    "image": "img/gallery/piatto-3.svg",
-    "alt": "Tavola apparecchiata nell’osteria contemporanea Atelier Doria",
-    "caption": "Una tavola intima nel cuore di Brindisi.",
-    "url": "https://www.instagram.com/hostaria_atelierdoria/"
-  },
-  {
     "image": "img/gallery/cucina.webp",
     "alt": "La brigata al lavoro nella cucina di Atelier Doria",
     "caption": "Passione e materia prima al centro.",
