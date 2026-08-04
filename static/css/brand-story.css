@@ -1,0 +1,80 @@
+/* Brand system extracted from the supplied Atelier Doria logo. */
+body { background: var(--cream); color: var(--dark); }
+.site-header { background: rgba(247,244,238,.96); border-bottom-color: rgba(11,99,107,.22); }
+.scroll-progress span, .ticker-value::after { background: var(--teal); }
+.button { background: var(--teal); border-color: var(--teal); color: var(--white); }
+.button:hover, .button:focus-visible { background: var(--bronze); border-color: var(--bronze); color: var(--white); }
+.button-dark { background: var(--deep-teal); border-color: var(--deep-teal); }
+.text-link, .eyebrow, .stars, .rating strong { color: var(--teal); }
+.section-dark .eyebrow, .site-footer .eyebrow, .info-card .eyebrow { color: var(--sand); }
+.site-footer { background: var(--deep-teal); border-top-color: var(--bronze); }
+.footer-brand-mark { background: var(--cream); border-color: rgba(143,121,93,.45); }
+.ticker .ticker-desktop { background: var(--deep-teal); }
+.ticker-value small { color: var(--sand); }
+.menu-preview { background: var(--warm-paper); }
+.dish-editorial { background: rgba(11,99,107,.18); }
+.dish-card { background: var(--warm-paper); }
+.dish-card:nth-child(2) { background: var(--teal); }
+.visit { background: var(--deep-teal); }
+.page-hero, .menu-hero { background: linear-gradient(125deg,var(--deep-teal),var(--teal)); }
+.section { border-bottom-color: rgba(11,99,107,.2); }
+.hero-media::after { background: linear-gradient(90deg,rgba(4,47,52,.94),rgba(4,47,52,.66) 52%,rgba(143,121,93,.34)); }
+.hero-content em, h2 em { color: var(--sand); }
+
+.story-hero { min-height: 62svh; display: flex; flex-direction: column; justify-content: flex-end; background: radial-gradient(circle at 82% 30%,rgba(213,194,163,.18),transparent 24%),linear-gradient(125deg,var(--deep-teal),#0b636b); }
+.story-hero h1 { max-width: 1050px; }
+.editorial-story { display: grid; grid-template-columns: minmax(260px,.75fr) minmax(0,1.5fr); gap: clamp(3rem,8vw,8rem); }
+.story-intro { position: sticky; top: 120px; align-self: start; }
+.story-lead { font: 500 clamp(1.6rem,3vw,2.55rem)/1.35 var(--serif); }
+.story-columns { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4.5rem); }
+.story-columns p { max-width: 50ch; }
+.story-gallery { display: grid; grid-template-columns: 1.35fr .65fr; gap: clamp(.75rem,1.5vw,1.5rem); padding: 0 max(1.25rem,calc((100vw - var(--max))/2)) var(--space); background: var(--cream); }
+.story-gallery figure, .chef-photo { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); }
+.story-gallery img { width: 100%; height: clamp(360px,48vw,680px); }
+.story-gallery-side { transform: translateY(7rem); }
+.story-gallery figcaption, .chef-photo figcaption, .photo-index-grid span, .photo-journal-item span { position: absolute; inset: auto 1rem 1rem; padding: .65rem .8rem; background: rgba(4,47,52,.84); color: #fff; font-size: .67rem; letter-spacing: .12em; text-transform: uppercase; }
+.story-chapter { display: grid; grid-template-columns: .22fr .9fr 1fr; gap: clamp(2rem,6vw,6rem); align-items: start; }
+.chapter-number { font: 500 clamp(3.8rem,8vw,7rem)/1 var(--serif); color: rgba(11,99,107,.16); }
+.section-dark .chapter-number { color: rgba(213,194,163,.18); }
+.chapter-heading h2 { font-size: clamp(2.4rem,5vw,4.6rem); }
+.chapter-copy { max-width: 58ch; font-size: clamp(1rem,1.3vw,1.16rem); }
+.chef-profile { display: grid; grid-template-columns: minmax(0,1.08fr) minmax(280px,.92fr); gap: clamp(3rem,8vw,8rem); align-items: center; }
+.chef-photo img { width: 100%; min-height: 620px; }
+.chef-copy blockquote { margin: 2rem 0 0; font: 500 clamp(1.45rem,2.7vw,2.35rem)/1.42 var(--serif); }
+.cellar-story { display: grid; grid-template-columns: 1fr .8fr; gap: clamp(3rem,8vw,8rem); align-items: center; background: var(--bronze); color: var(--white); }
+.cellar-story .eyebrow, .cellar-story h2 em, .cellar-story .text-link { color: var(--white); }
+.cellar-copy { max-width: 680px; }
+.cellar-mark { min-height: 360px; display: grid; place-items: center; align-content: center; gap: 1.25rem; border: 1px solid rgba(255,255,255,.38); border-radius: 50%; font: 500 clamp(1.5rem,3vw,2.5rem)/1 var(--serif); }
+.cellar-mark i { width: 1px; height: 80px; background: currentColor; }
+.photo-index-grid { display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 1rem; margin: 0 0 2.5rem; }
+.photo-index-grid a, .photo-journal-item { position: relative; overflow: hidden; border-radius: var(--radius); }
+.photo-index-grid img { width: 100%; aspect-ratio: 4/5; transition: transform .6s var(--curve); }
+.photo-index-grid a:nth-child(2) { transform: translateY(2rem); }
+.photo-index-grid a:hover img, .photo-journal-item:hover img { transform: scale(1.025); }
+.photo-journal { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(3rem,7vw,7rem); align-items: center; }
+.photo-journal-heading { max-width: 520px; }
+.photo-journal-grid { display: grid; grid-template-columns: 1.2fr .8fr; grid-template-rows: repeat(2,minmax(180px,1fr)); gap: 1rem; min-height: 650px; }
+.photo-journal-item img { width: 100%; height: 100%; transition: transform .6s var(--curve); }
+.photo-journal-item-1 { grid-row: 1/3; }
+
+@media (max-width: 900px) {
+  .editorial-story, .story-chapter, .chef-profile, .cellar-story, .photo-journal { grid-template-columns: 1fr; }
+  .story-intro { position: static; }
+  .story-gallery { grid-template-columns: 1fr 1fr; }
+  .chapter-number { font-size: 4rem; }
+  .chef-photo img { min-height: 480px; }
+  .cellar-mark { min-height: 260px; }
+  .photo-journal-grid { min-height: 520px; }
+}
+@media (max-width: 600px) {
+  .story-hero { min-height: 54svh; }
+  .story-columns, .story-gallery, .photo-index-grid { grid-template-columns: 1fr; }
+  .story-gallery-side, .photo-index-grid a:nth-child(2) { transform: none; }
+  .story-gallery img { height: 390px; }
+  .chef-photo img { min-height: 420px; }
+  .photo-journal-grid { min-height: 580px; grid-template-columns: 1fr 1fr; grid-template-rows: 1.15fr .85fr; }
+  .photo-journal-item-1 { grid-column: 1/3; grid-row: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-index-grid img, .photo-journal-item img { transition: none; }
+}
