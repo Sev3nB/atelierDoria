@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">\n  <meta name="theme-color" content="#15191a">
   {% set page_title %}{% block title %}Atelier Doria | Osteria contemporanea a Brindisi{% endblock %}{% endset %}
   <title>{{ page_title|trim }}</title>
   {% set meta_description %}{% block meta_description %}Cucina pugliese contemporanea nel centro storico di Brindisi.{% endblock %}{% endset %}
@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/desktop-fixes.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/brief-completion.css') }}">
-  <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.svg') }}" type="image/svg+xml">
+  <link rel="icon" href="{{ url_for('static', filename='favicon/favicon.svg') }}" type="image/svg+xml" sizes="any">
+  <link rel="mask-icon" href="{{ url_for('static', filename='favicon/favicon.svg') }}" color="#b49a48">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org","@type":"Restaurant","name":"Atelier Doria",
