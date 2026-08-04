@@ -46,11 +46,12 @@
   margin-bottom: .65rem;
 }
 @media (max-width: 600px) {
+  .hero-media img,
   .hero-media video {
-    display: none;
+    object-position: center center;
   }
   .hero-media::after {
-    background: linear-gradient(90deg, rgba(21, 25, 26, .92), rgba(21, 25, 26, .56));
+    background: linear-gradient(90deg, rgba(21, 25, 26, .86), rgba(21, 25, 26, .5));
   }
 }
 @media (prefers-reduced-motion: reduce) {
