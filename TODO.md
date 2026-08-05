@@ -1,4 +1,2 @@
-- Sistemare le immagini e inserirle tutte
-- Aggiornare il menu tramite Json
-  - Aggiornare il menu tramite DB
--
+- Aggiornare il menu tramite database Aruba
+- Definire il flusso di gestione del menu tramite pannello amministrativo

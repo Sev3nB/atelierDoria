@@ -1,0 +1,107 @@
+/* Real photographic archive: one semantic source, no social-media wrappers. */
+.photo-journal-grid,
+.photo-index-grid,
+.gallery-collection,
+.menu-photo-strip {
+  isolation: isolate;
+}
+.photo-journal-item,
+.photo-index-item,
+.gallery-item,
+.menu-photo-strip figure,
+.page-photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--deep-teal);
+}
+.photo-journal-item img,
+.photo-index-item img,
+.gallery-item img,
+.menu-photo-strip img,
+.page-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--curve);
+}
+.photo-journal-item:hover img,
+.photo-index-item:hover img,
+.gallery-item:hover img { transform: scale(1.025); }
+.photo-caption,
+.photo-journal-item figcaption,
+.photo-index-item figcaption,
+.gallery-item figcaption,
+.menu-photo-strip figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2.5rem 1rem 1rem;
+  background: linear-gradient(transparent, rgba(4,47,52,.88));
+  color: #fff;
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.photo-journal-grid {
+  grid-template-columns: 1.15fr .85fr .85fr;
+  grid-template-rows: repeat(2, minmax(190px, 1fr));
+  min-height: 650px;
+}
+.photo-journal-item:first-child { grid-row: 1 / 3; }
+.gallery-group { padding-top: clamp(3.5rem, 7vw, 6.5rem); }
+.gallery-group + .gallery-group { border-top: 1px solid rgba(11,99,107,.2); }
+.gallery-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 2rem; margin-bottom: 1.5rem; }
+.gallery-group-heading h2 { margin: 0; }
+.gallery-collection { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+.gallery-item { grid-column: span 4; min-height: 440px; }
+.gallery-item:nth-child(5n + 1) { grid-column: span 7; }
+.gallery-item:nth-child(5n + 2) { grid-column: span 5; }
+.gallery-item img { aspect-ratio: 4 / 5; }
+.gallery-item:nth-child(5n + 1) img { aspect-ratio: 7 / 5; }
+.menu-photo-strip { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 1rem; margin-top: clamp(3rem, 7vw, 6rem); }
+.menu-photo-strip figure { min-height: 360px; }
+.contact-hero img { object-position: center 42%; }
+.booking-layout {
+  grid-template-columns: minmax(480px, 1.25fr) minmax(230px, .58fr) minmax(250px, .67fr);
+  gap: clamp(1rem, 2.4vw, 2.5rem);
+  align-items: stretch;
+}
+.booking-photo { min-height: 680px; }
+.booking-photo img { object-position: center; }
+.event-photo { width: min(100%, 1100px); height: clamp(380px, 55vw, 680px); margin: 0 auto var(--space); }
+.review-atmosphere { height: clamp(360px, 48vw, 640px); margin: 0 max(1.25rem, calc((100vw - var(--max)) / 2)) var(--space); }
+.cellar-visual { min-height: 520px; }
+
+@media (max-width: 900px) {
+  .booking-layout { grid-template-columns: 1fr; }
+  .photo-journal-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 1.1fr .9fr .9fr; min-height: 850px; }
+  .photo-journal-item:first-child { grid-column: 1 / 3; grid-row: 1; }
+  .gallery-item,
+  .gallery-item:nth-child(5n + 1),
+  .gallery-item:nth-child(5n + 2) { grid-column: span 6; }
+  .gallery-item:nth-child(5n + 1) img { aspect-ratio: 4 / 5; }
+  .menu-photo-strip { grid-template-columns: 1fr 1fr; }
+  .menu-photo-strip figure:first-child { grid-column: 1 / 3; }
+  .booking-photo { min-height: 480px; }
+}
+@media (max-width: 600px) {
+  .photo-journal-grid { display: flex; min-height: 0; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .75rem; }
+  .photo-journal-item { flex: 0 0 82vw; height: 440px; scroll-snap-align: start; }
+  .gallery-group-heading { display: block; }
+  .gallery-collection { grid-template-columns: 1fr 1fr; gap: .75rem; }
+  .gallery-item,
+  .gallery-item:nth-child(5n + 1),
+  .gallery-item:nth-child(5n + 2) { grid-column: span 1; min-height: 300px; }
+  .menu-photo-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .menu-photo-strip figure,
+  .menu-photo-strip figure:first-child { flex: 0 0 82vw; min-height: 420px; scroll-snap-align: start; }
+  .booking-photo { min-height: 420px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-journal-item img,
+  .photo-index-item img,
+  .gallery-item img,
+  .menu-photo-strip img,
+  .page-photo img { transition: none; }
+}

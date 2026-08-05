@@ -1,1 +1,10 @@
-{% extends "base.html" %}{% block title %}Galleria | Atelier Doria{% endblock %}{% block meta_description %}Piatti, sala e atmosfera di Atelier Doria, osteria contemporanea a Brindisi.{% endblock %}{% block content %}<header class="page-hero"><p class="eyebrow">Dentro l’Atelier</p><h1>Galleria</h1></header><section class="section instagram-grid gallery"><figure class="gallery-editorial gallery-wide"><img src="{{ url_for('static', filename='img/editorial/sala-cucina.webp') }}" alt="Immagine editoriale dell’atmosfera di una osteria contemporanea" width="1600" height="1067"><figcaption>Atmosfera · immagine editoriale</figcaption></figure><figure class="gallery-editorial"><img src="{{ url_for('static', filename='img/editorial/pasta-mare.webp') }}" alt="Immagine editoriale di un primo di mare" width="1600" height="1067" loading="lazy"><figcaption>Mare · immagine editoriale</figcaption></figure>{% for p in posts %}<a href="{{ p.url }}" target="_blank" rel="noopener"><img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.alt }}" width="600" height="600" loading="lazy"><span>{{ p.caption }}</span></a>{% endfor %}</section>{% endblock %}
+{% extends "base.html" %}
+{% block title %}Galleria | Atelier Doria{% endblock %}
+{% block meta_description %}Piatti, cucina, chef, sala e cantina di Atelier Doria, osteria contemporanea a Brindisi.{% endblock %}
+{% block content %}
+<header class="page-hero"><p class="eyebrow">Dentro l’Atelier</p><h1>Galleria</h1><p>Un archivio reale di cucina, materia, persone e luoghi.</p></header>
+{% for category in ['Piatti', 'Materia', 'Cucina', 'Chef', 'Interni', 'Esterno', 'Tavola', 'Cantina'] %}
+{% set items = photos.gallery|selectattr('category', 'equalto', category)|list %}
+{% if items %}<section class="section gallery-group"><div class="gallery-group-heading reveal"><div><p class="eyebrow">Archivio fotografico</p><h2>{{ category }}</h2></div><span>{{ '%02d'|format(items|length) }} immagini</span></div><div class="gallery-collection">{% for photo in items %}<figure class="gallery-item reveal"><img src="{{ url_for('static', filename=photo.image) }}" alt="{{ photo.alt }}" width="1080" height="1350" loading="lazy"><figcaption>{{ photo.caption }}</figcaption></figure>{% endfor %}</div></section>{% endif %}
+{% endfor %}
+{% endblock %}
