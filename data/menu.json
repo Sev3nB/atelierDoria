@@ -127,30 +127,35 @@
       "items": [
         {
           "name_it": "Paccheri all'osteria",
+          "name_en": "Osteria-style paccheri",
           "it": "Paccheri, salsiccia nostrana marinata, guanciale, fonduta di pecorino",
           "en": "Osteria-style paccheri, local sausage, guanciale, pecorino fondue",
           "price": 16.0
         },
         {
           "name_it": "Risotto patate e cozze",
+          "name_en": "Potato and mussel risotto",
           "it": "minimo 2 persone",
           "en": "Risotto with potatoes and mussels - minimum 2 people",
           "price": 16.0
         },
         {
           "name_it": "Raviolo di parmigiana di melanzane",
+          "name_en": "Eggplant parmigiana raviolo",
           "it": "Raviolo di parmigiana di melanzane, pomodoro fiaschetto arrosto, caciocavallo di grotta, basilico",
           "en": "Ravioli of eggplant parmigiana, roasted fiaschetto tomato, caciocavallo di grotta cheese, basil",
           "price": 15.0
         },
         {
           "name_it": "Tagliolino cacio e pepe",
+          "name_en": "Cacio e pepe tagliolino",
           "it": "Tagliolino cacio e pepe con gambero rosso e lime",
           "en": "Tagliolino cacio & pepe, red prawns, lime",
           "price": 18.0
         },
         {
           "name_it": "Spaghettone aglio e olio alla Pescatrice",
+          "name_en": "Garlic and olive oil spaghettone with monkfish",
           "it": "Spaghettone aglio e olio alla Pescatrice con triglia",
           "en": "Spaghettone garlic and oil with monkfish",
           "price": 17.0
