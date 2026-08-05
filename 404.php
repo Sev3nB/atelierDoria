@@ -1,0 +1,1 @@
+<?php require __DIR__ . '/includes/bootstrap.php'; http_response_code(404); page_start('Pagina non trovata | Atelier Doria'); ?><section class="page-hero error-page"><p class="eyebrow">Errore 404</p><h1>Questa pagina non è in menu.</h1><a class="button" href="/">Torna alla home</a></section><?php page_end();
