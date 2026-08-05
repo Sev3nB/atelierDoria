@@ -1,0 +1,5 @@
+<?php require __DIR__ . '/includes/bootstrap.php'; page_start('Galleria | Atelier Doria','Piatti, cucina, chef, sala e cantina di Atelier Doria, osteria contemporanea a Brindisi.'); ?>
+<header class="page-hero"><p class="eyebrow">Dentro l’Atelier</p><h1>Galleria</h1><p>Un archivio reale di cucina, materia, persone e luoghi.</p></header>
+<?php foreach(['Piatti','Materia','Cucina','Chef','Interni','Esterno','Tavola','Cantina'] as $category): $items=array_values(array_filter($photos['gallery'],fn($p)=>$p['category']===$category)); if(!$items)continue; ?>
+<section class="section gallery-group"><div class="gallery-group-heading reveal"><div><p class="eyebrow">Archivio fotografico</p><h2><?= e($category) ?></h2></div><span><?= sprintf('%02d',count($items)) ?> immagini</span></div><div class="gallery-collection"><?php foreach($items as $photo): ?><figure class="gallery-item reveal"><img src="<?= asset($photo['image']) ?>" alt="<?= e($photo['alt']) ?>" width="1080" height="1350" loading="lazy"><figcaption><?= e($photo['caption']) ?></figcaption></figure><?php endforeach; ?></div></section>
+<?php endforeach; page_end();
