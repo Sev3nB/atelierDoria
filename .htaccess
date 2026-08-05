@@ -1,0 +1,17 @@
+DirectoryIndex index.php
+Options -Indexes
+RewriteEngine On
+RewriteRule ^robots\.txt$ static/robots.txt [L]
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+RewriteRule ^menu/?$ menu.php [L,QSA]
+RewriteRule ^chi-siamo/?$ chi-siamo.php [L,QSA]
+RewriteRule ^recensioni/?$ recensioni.php [L,QSA]
+RewriteRule ^prenotazioni/?$ prenotazioni.php [L,QSA]
+RewriteRule ^galleria/?$ galleria.php [L,QSA]
+RewriteRule ^eventi/?$ eventi.php [L,QSA]
+RewriteRule ^contatti/?$ contatti.php [L,QSA]
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
+<FilesMatch "^\.env$">
+  Require all denied
+</FilesMatch>
