@@ -88,7 +88,11 @@
   };
   const applyLanguage = (language) => {
     document.documentElement.lang = language;
+    document.querySelectorAll("[data-i18n-it][data-i18n-en]").forEach((element) => {
+      element.textContent = element.dataset[`i18n${language === "en" ? "En" : "It"}`];
+    });
     document.querySelectorAll("body *:not(script):not(style)").forEach((element) => {
+      if (element.matches("[data-i18n-it][data-i18n-en]")) return;
       element.childNodes.forEach((node) => {
         if (node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) return;
         if (!originalText.has(node)) originalText.set(node, node.textContent);
