@@ -1,1 +1,0 @@
-export async function fetchInstagramFeed(){const response=await fetch("/api/instagram-feed",{headers:{Accept:"application/json"}});if(!response.ok)throw new Error("Feed Instagram non disponibile");return response.json()}
