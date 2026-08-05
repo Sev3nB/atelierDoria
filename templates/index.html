@@ -40,7 +40,7 @@
   <div class="section-heading reveal"><p class="eyebrow">Il menu · estate 2026</p><h2>Piatti con una memoria.<br><em>E qualcosa da raccontare.</em></h2></div>
   <div class="dish-editorial">
     {% for section in menu[:3] %}{% set featured = section['items']|selectattr('highlight', 'defined')|first %}
-    <article class="dish-card reveal"><span>0{{ loop.index }}</span><p class="eyebrow">{{ section.category }}</p><h3>{{ featured.name }}</h3><p>{{ featured.description }}</p><strong>{{ featured.price }}</strong></article>
+    <article class="dish-card reveal"><span>0{{ loop.index }}</span><p class="eyebrow"><span data-i18n-it="{{ section.category_it }}" data-i18n-en="{{ section.category_en }}">{{ section.category_it }}</span></p><h3><span data-i18n-it="{{ featured.name_it }}" data-i18n-en="{{ featured.name_en }}">{{ featured.name_it }}</span></h3>{% if featured.description_it %}<p><span data-i18n-it="{{ featured.description_it }}" data-i18n-en="{{ featured.description_en }}">{{ featured.description_it }}</span></p>{% endif %}<strong>{{ featured.price }}</strong></article>
     {% endfor %}
   </div>
   <div class="menu-preview-footer"><p>Menu pubblicato il {{ menu_updated }}. Le proposte possono cambiare secondo mercato e stagione.</p><a class="button button-dark" href="{{ url_for('menu') }}">Guarda tutto il menu</a></div>
