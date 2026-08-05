@@ -34,7 +34,7 @@ def create_app(test_config=None):
             "instagram_url": "https://www.instagram.com/hostaria_atelierdoria/",
             "facebook_url": "https://www.facebook.com/p/Atelier-Doria-61567679798300/",
             "thefork_url": "https://www.thefork.it/ristorante/atelier-doria-r856705",
-            "menu_updated": "12 giugno 2026",
+            "menu_updated": "5 agosto 2026",
             "hero_video_mp4": app.config["HERO_VIDEO_MP4"],
             "hero_video_webm": app.config["HERO_VIDEO_WEBM"],
             "hours": load_json("orari.json"),
@@ -44,10 +44,23 @@ def create_app(test_config=None):
 
     @app.get("/")
     def home():
+        menu_data = load_json("menu.json")
+        menu_preview = []
+        for section in menu_data["a_la_carte"][:3]:
+            item = section["items"][0]
+            menu_preview.append({
+                "category": section["category_it"],
+                "items": [{
+                    "name": item.get("name_it", item["it"]),
+                    "description": item["it"] if item.get("name_it") else "",
+                    "price": f'{item["price"]:g} €',
+                    "highlight": True,
+                }],
+            })
         return render_template(
             "index.html",
             reviews=load_json("recensioni.json")[:3],
-            menu=load_json("menu.json"),
+            menu=menu_preview,
         )
 
     @app.get("/menu")

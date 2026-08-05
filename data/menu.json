@@ -1,51 +1,284 @@
-[
-  {
-    "category": "Antipasti",
-    "intro": "Radici pugliesi, materia viva e contrasti misurati.",
-    "items": [
-      {"name": "L’antipasto dell’osteria", "description": "Percorso in cinque portate.", "price": "18 €", "highlight": true},
-      {"name": "Cozze alla brindisina", "description": "Un classico della città nella lettura dell’Atelier.", "price": "13 €"},
-      {"name": "Melanzana affumicata", "description": "Pomodoro, mandorla e ricotta forte.", "price": "10 €"},
-      {"name": "Polpette al sugo della nonna", "description": "Memoria domestica, cottura lenta.", "price": "10 €"},
-      {"name": "Frisa", "description": "Burrata di Pezzaviva, gambero rosso e capocollo di Martina Franca.", "price": "14 €", "highlight": true},
-      {"name": "Fave e cicoria", "description": "Pane alle erbe e alici.", "price": "9 €"}
-    ]
-  },
-  {
-    "category": "Primi piatti",
-    "intro": "Pasta, mare e campagna si incontrano senza perdere riconoscibilità.",
-    "items": [
-      {"name": "Paccheri all’osteria", "description": "Salsiccia nostrana marinata, guanciale e fonduta di pecorino.", "price": "16 €", "highlight": true},
-      {"name": "Risotto patate e cozze", "description": "Disponibile per minimo due persone.", "price": "16 €"},
-      {"name": "Raviolo di burrata", "description": "Pomodoro infornato, melanzana fumè e basilico.", "price": "14 €"},
-      {"name": "Tagliolino cacio e pepe", "description": "Gambero rosso e lime.", "price": "18 €", "highlight": true},
-      {"name": "Spaghettone aglio e olio alla mugnaia", "description": "Con triglia.", "price": "17 €"},
-      {"name": "Tubetti, seppia e piselli", "description": "Un incontro diretto tra orto e Adriatico.", "price": "17 €"}
-    ]
-  },
-  {
-    "category": "Secondi piatti",
-    "intro": "Brace, pescato e carni del territorio.",
-    "items": [
-      {"name": "Maialino", "description": "Fave e verdure di campo.", "price": "17 €"},
-      {"name": "Agnello", "description": "Lampascioni e pecorino.", "price": "18 €"},
-      {"name": "Bombette pugliesi", "description": "Patate al rosmarino, peperoni arrosto, canestrato e miele d’Otranto.", "price": "16 €", "highlight": true},
-      {"name": "Merluzzo", "description": "Colatura di provola, melanzana e pomodoro vanigliato.", "price": "18 €"},
-      {"name": "Gallinella", "description": "Ciambotta pugliese.", "price": "19 €"},
-      {"name": "Grigliata del porto alla brace", "description": "Selezione di mare secondo disponibilità.", "price": "20 €", "highlight": true},
-      {"name": "Fritto fresco di mare", "description": "Pescato e frittura espressa.", "price": "17 €"}
-    ]
-  },
-  {
-    "category": "Dolci di nostra produzione",
-    "intro": "Finali essenziali, preparati in casa.",
-    "items": [
-      {"name": "Piccola pasticceria", "description": "Assortimento dell’Atelier.", "price": "7 €"},
-      {"name": "Tiramisù", "description": "Il classico della casa.", "price": "7 €"},
-      {"name": "Cheesecake", "description": "Preparazione artigianale.", "price": "7 €"},
-      {"name": "Mandorla", "description": "Omaggio alla Puglia.", "price": "7 €"},
-      {"name": "Babà", "description": "Lievitato e bagna aromatica.", "price": "7 €"},
-      {"name": "Cioccolato", "description": "Cremoso e gelato alla vaniglia.", "price": "7 €"}
-    ]
-  }
-]
+{
+  "tasting_menus": [
+    {
+      "name": "Atelier Radici",
+      "price": 35.0,
+      "courses": [
+        {
+          "it": "Carpaccio di manzo, salsa leggera di pecorino, tartufo, erbette spontanee",
+          "en": "Beef carpaccio, light pecorino sauce, truffle, wild herbs"
+        },
+        {
+          "it": "Polpette al sugo della nonna e cacioricotta",
+          "en": "Grandma's meatballs in tomato sauce and cacioricotta cheese"
+        },
+        {
+          "it": "Fave e cicoria, pane tostato, erbe e alici",
+          "en": "Fava beans and chicory, toasted bread, herbs and anchovies"
+        },
+        {
+          "it": "Caprino panato, panzanella, salsa aioli",
+          "en": "Breaded goat cheese, panzanella, aioli sauce"
+        },
+        {
+          "it": "Paccheri, salsiccia nostrana marinata, fonduta di pecorino, guanciale",
+          "en": "Paccheri pasta, marinated local sausage, pecorino fondue, guanciale"
+        },
+        {
+          "it": "Bombette locali al miele e patate al rosmarino",
+          "en": "Local bombette with honey and rosemary potatoes"
+        },
+        {
+          "it": "Acqua e Calice di vino",
+          "en": "Water and a glass of wine"
+        }
+      ]
+    },
+    {
+      "name": "Atelier Confini",
+      "price": 45.0,
+      "courses": [
+        {
+          "it": "Cozze alla Brindisina",
+          "en": "Brindisi-style mussels"
+        },
+        {
+          "it": "Frisa, burrata di Pezzaviva, gambero rosso, capocollo di Martina Franca",
+          "en": "Frisa bread, Pezzaviva burrata, red prawns, Martina Franca capocollo"
+        },
+        {
+          "it": "Polpette di polpo, mayo al lime",
+          "en": "Octopus meatballs, lime mayo"
+        },
+        {
+          "it": "Alici, confettura di cipolla rossa al balsamico",
+          "en": "Anchovies, red onion jam with balsamic"
+        },
+        {
+          "it": "Tagliolino cacio e pepe, gambero rosso e lime",
+          "en": "Tagliolino cacio e pepe, red prawns and lime"
+        },
+        {
+          "it": "Milanese di tonno, scarola, limone",
+          "en": "Tuna Milanese, escarole, lemon"
+        },
+        {
+          "it": "Acqua e Calice di vino",
+          "en": "Water and a glass of wine"
+        }
+      ]
+    }
+  ],
+  "a_la_carte": [
+    {
+      "category_it": "Antipasti",
+      "category_en": "Appetizers",
+      "items": [
+        {
+          "it": "L'antipasto dell'Osteria (5 portate)",
+          "en": "The appetizer from the Osteria (5 courses)",
+          "price": 18.0
+        },
+        {
+          "it": "Cozze alla brindisina",
+          "en": "Brindisi-style mussels",
+          "price": 13.0
+        },
+        {
+          "it": "Bruschetta della casa",
+          "en": "House bruschetta",
+          "price": 9.0
+        },
+        {
+          "it": "Caprino panato, panzanella, salsa aioli",
+          "en": "Breaded goat cheese, panzanella, aioli sauce",
+          "price": 10.0
+        },
+        {
+          "it": "Polpette al sugo della nonna",
+          "en": "Grandma's meatballs in tomato sauce",
+          "price": 10.0
+        },
+        {
+          "it": "Carpaccio di manzo, salsa leggera al pecorino, tartufo, erbette spontanee",
+          "en": "Beef carpaccio, light pecorino sauce, truffle, wild herbs",
+          "price": 15.0
+        },
+        {
+          "it": "Frisa, burrata di Pezzaviva, gambero rosso, capocollo di Martina Franca",
+          "en": "Frisa bread, Pezzaviva burrata, red prawns, Martina Franca capocollo",
+          "price": 14.0
+        },
+        {
+          "it": "Fave e cicoria, pane alle erbe, alici",
+          "en": "Fava beans and chicory, herb bread, anchovies",
+          "price": 9.0
+        },
+        {
+          "it": "Seppioline ripiene, mayo al nero di seppia, cipolla rossa e lime",
+          "en": "Stuffed cuttlefish, cuttlefish ink mayo, red onion and lime",
+          "price": 13.0
+        }
+      ]
+    },
+    {
+      "category_it": "Primi piatti",
+      "category_en": "First courses",
+      "items": [
+        {
+          "name_it": "Paccheri all'osteria",
+          "it": "Paccheri, salsiccia nostrana marinata, guanciale, fonduta di pecorino",
+          "en": "Osteria-style paccheri, local sausage, guanciale, pecorino fondue",
+          "price": 16.0
+        },
+        {
+          "name_it": "Risotto patate e cozze",
+          "it": "minimo 2 persone",
+          "en": "Risotto with potatoes and mussels - minimum 2 people",
+          "price": 16.0
+        },
+        {
+          "name_it": "Raviolo di parmigiana di melanzane",
+          "it": "Raviolo di parmigiana di melanzane, pomodoro fiaschetto arrosto, caciocavallo di grotta, basilico",
+          "en": "Ravioli of eggplant parmigiana, roasted fiaschetto tomato, caciocavallo di grotta cheese, basil",
+          "price": 15.0
+        },
+        {
+          "name_it": "Tagliolino cacio e pepe",
+          "it": "Tagliolino cacio e pepe con gambero rosso e lime",
+          "en": "Tagliolino cacio & pepe, red prawns, lime",
+          "price": 18.0
+        },
+        {
+          "name_it": "Spaghettone aglio e olio alla Pescatrice",
+          "it": "Spaghettone aglio e olio alla Pescatrice con triglia",
+          "en": "Spaghettone garlic and oil with monkfish",
+          "price": 17.0
+        }
+      ]
+    },
+    {
+      "category_it": "Secondi piatti",
+      "category_en": "Second Courses",
+      "items": [
+        {
+          "it": "Maialino, fave, verdure di campo",
+          "en": "Pork, fava beans, wild greens",
+          "price": 17.0
+        },
+        {
+          "it": "Agnello, lampascioni e pecorino",
+          "en": "Lamb, lampascioni and pecorino cheese",
+          "price": 18.0
+        },
+        {
+          "it": "Bombette pugliesi, patate al rosmarino, peperoni arrosto, canestrato stagionato e miele d'Otranto",
+          "en": "Apulian-style bombette, rosemary potatoes, roasted peppers, aged canestrato cheese, Otranto honey",
+          "price": 16.0
+        },
+        {
+          "it": "Milanese di tonno, scarola, limone",
+          "en": "Tuna Milanese, escarole, lemon",
+          "price": 18.0
+        },
+        {
+          "it": "Grigliata del porto alla brace",
+          "en": "Charcoal-grilled seafood platter",
+          "price": 20.0
+        },
+        {
+          "it": "Fritto fresco di mare",
+          "en": "Fresh fried seafood",
+          "price": 17.0
+        }
+      ]
+    },
+    {
+      "category_it": "Bevande",
+      "category_en": "Beverage",
+      "items": [
+        {
+          "it": "Acqua",
+          "en": "Water",
+          "price": 3.0
+        },
+        {
+          "it": "Bibite",
+          "en": "Soft drink",
+          "price": 3.0
+        },
+        {
+          "it": "Birre Italiane",
+          "en": "Italian beers",
+          "price": 5.0
+        },
+        {
+          "it": "Birre Estere",
+          "en": "Foreign beers",
+          "price": 6.0
+        },
+        {
+          "it": "Caffè",
+          "en": "Coffee",
+          "price": 2.0
+        },
+        {
+          "it": "Amari",
+          "en": "Digestifs",
+          "price": 4.0
+        },
+        {
+          "it": "Grappa",
+          "en": "Grappa",
+          "price": 8.0
+        },
+        {
+          "it": "Whisky",
+          "en": "Whisky",
+          "price": 8.0
+        },
+        {
+          "it": "Rum",
+          "en": "Rum",
+          "price": 8.0
+        }
+      ]
+    },
+    {
+      "category_it": "Dolci di nostra produzione",
+      "category_en": "Sweets (of our production)",
+      "items": [
+        {
+          "it": "Tiramisù",
+          "price": 6.0,
+          "en": "Tiramisu"
+        },
+        {
+          "it": "Torta della nonna",
+          "price": 6.0,
+          "en": "Grandma’s cake"
+        },
+        {
+          "it": "Torta alle mele",
+          "price": 6.0,
+          "en": "Apple cake"
+        },
+        {
+          "it": "Crostata dell'osteria",
+          "price": 6.0,
+          "en": "Osteria tart"
+        },
+        {
+          "it": "Cheesecake",
+          "price": 6.0,
+          "en": "Cheesecake"
+        }
+      ]
+    }
+  ],
+  "footer_notes": [
+    "prodotto derivante da alimento abbattuto in negativo o congelato / product deriving from food that has been negatively slaughtered or frozen",
+    "il pesce destinato ad essere consumato crudo è sottoposto a trattamento di bonifica preventiva conforme alle prescrizioni del Reg. CE 853/2004, all. III, sez. VIII, cap. 3, lettera D, punto 3 / fish that is intended to be eaten raw is subject to a preventive reclamation treatment in compliance with the requirements of EC Reg. 853/2004, Annex III, sec. VIII, chapter 3, letter D, point 3",
+    "Per qualsiasi informazione su sostanze e allergeni è possibile consultare l'apposita documentazione che verrà fornita, a richiesta, dal personale di servizio. / For any information on substances and allergens, please refer to the appropriate documentation which will be provided, on request, by the service staff."
+  ]
+}
