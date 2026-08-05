@@ -5,7 +5,7 @@
     <img src="{{ url_for('static', filename=photos.featured.hero_poster.image) }}" alt="" width="1080" height="1350" fetchpriority="high">
     <video data-hero-video autoplay muted loop playsinline preload="metadata" poster="{{ url_for('static', filename=photos.featured.hero_poster.image) }}">
       {% if hero_video_mp4 %}<source src="{{ hero_video_mp4 }}" type="video/mp4">{% endif %}
-      {% if hero_video_webm %}<source src="{{ hero_video_webm }}" type="video/webm">{% else %}<source src="{{ url_for('static', filename='img/hero_video.webm') }}" type="video/webm">{% endif %}
+      {% if hero_video_webm %}<source src="{{ hero_video_webm }}" type="video/webm">{% else %}<source src="{{ url_for('static', filename='video/hero-atelier-doria.webm') }}" type="video/webm">{% endif %}
     </video>
   </div>
   <div class="hero-orbit" aria-hidden="true"><span>Radici</span><i></i><span>Presente</span></div>
