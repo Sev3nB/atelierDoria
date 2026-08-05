@@ -48,11 +48,15 @@ def create_app(test_config=None):
         menu_preview = []
         for section in menu_data["a_la_carte"][:3]:
             item = section["items"][0]
+            has_separate_name = bool(item.get("name_it"))
             menu_preview.append({
-                "category": section["category_it"],
+                "category_it": section["category_it"],
+                "category_en": section["category_en"],
                 "items": [{
-                    "name": item.get("name_it", item["it"]),
-                    "description": item["it"] if item.get("name_it") else "",
+                    "name_it": item.get("name_it", item["it"]),
+                    "name_en": item.get("name_en", item["en"]),
+                    "description_it": item["it"] if has_separate_name else "",
+                    "description_en": item["en"] if has_separate_name else "",
                     "price": f'{item["price"]:g} €',
                     "highlight": True,
                 }],
