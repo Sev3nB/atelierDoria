@@ -59,8 +59,8 @@
 
 <section class="section photo-journal">
   <div class="photo-journal-heading reveal"><p class="eyebrow">Dentro Atelier Doria</p><h2>Una cucina da vivere,<br><em>prima ancora di assaggiarla.</em></h2><p>Interni, cucina a vista, chef, vini e piatti: ogni immagine racconta una parte dell’esperienza.</p><a class="text-link" href="{{ url_for('gallery') }}">Esplora la galleria</a></div>
-  {% set journal = [photos.featured.about_room, photos.featured.about_dish, photos.featured.chef, photos.featured.cellar, photos.featured.contacts] %}
-  <div class="photo-journal-grid">{% for photo in journal %}<figure class="photo-journal-item reveal"><img src="{{ url_for('static', filename=photo.image) }}" alt="{{ photo.alt }}" width="1080" height="1350" loading="lazy"><figcaption>{{ ['La sala', 'La cucina', 'Lo chef', 'La cantina', 'Corso Roma'][loop.index0] }}</figcaption></figure>{% endfor %}</div>
+  {% set journal = [photos.gallery[1], photos.gallery[5], photos.gallery[16], photos.gallery[20], photos.gallery[29]] %}
+  <div class="photo-journal-grid">{% for photo in journal %}<figure class="photo-journal-item reveal"><img src="{{ url_for('static', filename=photo.image) }}" alt="{{ photo.alt }}" width="1080" height="1350" loading="lazy"><figcaption>{{ photo.caption }}</figcaption></figure>{% endfor %}</div>
 </section>
 
 <section class="section reviews-home">
