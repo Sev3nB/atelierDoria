@@ -1,6 +1,6 @@
 <header class="site-header">
   <a class="brand" data-brand="atelier-doria" href="{{ url_for('home') }}" aria-label="Atelier Doria, home">
-    <img src="{{ url_for('static', filename='img/logo-atelier-doria-official.png') }}" alt="Atelier Doria — Osteria Contemporanea" width="2019" height="449" fetchpriority="high" decoding="async">
+    <img src="{{ url_for('static', filename='img/brand/logo-atelier-doria.png') }}" alt="Atelier Doria — Osteria Contemporanea" width="2019" height="449" fetchpriority="high" decoding="async">
   </a>
   <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><span class="sr-only">Apri menu</span></button>
   <nav id="main-nav" class="main-nav" aria-label="Navigazione principale">
@@ -9,8 +9,8 @@
     <a href="{{ url_for('reviews') }}">Recensioni</a><a href="{{ url_for('contacts') }}">Contatti</a>
     <button class="language-toggle" type="button" aria-label="Switch to English" title="Switch to English">
       <span class="language-flags" aria-hidden="true">
-        <img class="language-flag-image flag-en" src="{{ url_for('static', filename='img/flags/gb.svg') }}" alt="" width="28" height="20">
-        <img class="language-flag-image flag-it" src="{{ url_for('static', filename='img/flags/it.svg') }}" alt="" width="28" height="20">
+        <img class="language-flag-image flag-en" src="{{ url_for('static', filename='img/flags/flag-gb.svg') }}" alt="" width="28" height="20">
+        <img class="language-flag-image flag-it" src="{{ url_for('static', filename='img/flags/flag-it.svg') }}" alt="" width="28" height="20">
       </span>
       <span class="language-label">English</span>
     </button>
