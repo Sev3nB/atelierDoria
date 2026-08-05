@@ -1,0 +1,4 @@
+- Sistemare le immagini e inserirle tutte
+- Aggiornare il menu tramite Json
+  - Aggiornare il menu tramite DB
+-
