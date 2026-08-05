@@ -1,0 +1,1 @@
+<?php require __DIR__ . '/includes/bootstrap.php'; http_response_code(500); page_start('Errore | Atelier Doria'); ?><section class="page-hero error-page"><p class="eyebrow">Errore 500</p><h1>La cucina si è fermata un momento.</h1><a class="button" href="/">Torna alla home</a></section><?php page_end();
