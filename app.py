@@ -38,6 +38,7 @@ def create_app(test_config=None):
             "hero_video_mp4": app.config["HERO_VIDEO_MP4"],
             "hero_video_webm": app.config["HERO_VIDEO_WEBM"],
             "hours": load_json("orari.json"),
+            "photos": load_json("photos.json"),
             "current_year": date.today().year,
         }
 
@@ -46,7 +47,6 @@ def create_app(test_config=None):
         return render_template(
             "index.html",
             reviews=load_json("recensioni.json")[:3],
-            instagram_posts=load_json("instagram_posts.json"),
             menu=load_json("menu.json"),
         )
 
@@ -56,7 +56,7 @@ def create_app(test_config=None):
 
     @app.get("/chi-siamo")
     def about():
-        return render_template("chi_siamo.html", photos=load_json("instagram_posts.json"))
+        return render_template("chi_siamo.html")
 
     @app.get("/recensioni")
     def reviews():
@@ -90,7 +90,7 @@ def create_app(test_config=None):
 
     @app.get("/galleria")
     def gallery():
-        return render_template("galleria.html", posts=load_json("instagram_posts.json"))
+        return render_template("galleria.html")
 
     @app.get("/eventi")
     def events():
@@ -114,11 +114,6 @@ def create_app(test_config=None):
             error=error,
             maps_url=app.config["GOOGLE_MAPS_EMBED_URL"],
         )
-
-    @app.get("/api/instagram-feed")
-    def instagram_feed():
-        # Fallback locale. Collegare qui Instagram Graph API con cache quando il token sarà disponibile.
-        return jsonify(load_json("instagram_posts.json"))
 
     @app.get("/robots.txt")
     def robots():
