@@ -17,19 +17,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/brief-completion.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/brand-story.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/official-logo.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/photo-library.css') }}">
   <link rel="icon" href="{{ url_for('static', filename='favicon/favicon-32.png') }}" type="image/png" sizes="32x32">
   <link rel="icon" href="{{ url_for('static', filename='favicon/favicon-192.png') }}" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}" sizes="180x180">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org","@type":"Restaurant","name":"Atelier Doria",
-    "description":"Osteria contemporanea di cucina pugliese a Brindisi",
-    "address":{"@type":"PostalAddress","streetAddress":"Corso Roma, 32","addressLocality":"Brindisi","addressRegion":"BR","addressCountry":"IT"},
-    "servesCuisine":["Cucina pugliese","Cucina italiana contemporanea"],"priceRange":"€€",
-    "sameAs":["https://www.instagram.com/hostaria_atelierdoria/"]
-    {% if phone_uri %},"telephone":"{{ phone_uri }}"{% endif %}
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Atelier Doria","description":"Osteria contemporanea di cucina pugliese a Brindisi","address":{"@type":"PostalAddress","streetAddress":"Corso Roma, 32","addressLocality":"Brindisi","addressRegion":"BR","addressCountry":"IT"},"servesCuisine":["Cucina pugliese","Cucina italiana contemporanea"],"priceRange":"€€","sameAs":["https://www.instagram.com/hostaria_atelierdoria/"]{% if phone_uri %},"telephone":"{{ phone_uri }}"{% endif %}}</script>
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -37,9 +29,7 @@
   {% include "partials/header.html" %}
   <main id="contenuto">{% block content %}{% endblock %}</main>
   {% include "partials/footer.html" %}
-  <button class="back-to-top" type="button" aria-label="Torna all’inizio" title="Torna all’inizio">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"/></svg>
-  </button>
+  <button class="back-to-top" type="button" aria-label="Torna all’inizio" title="Torna all’inizio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"/></svg></button>
   <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
   <script src="{{ url_for('static', filename='js/i18n.js') }}" defer></script>
   {% block scripts %}{% endblock %}
