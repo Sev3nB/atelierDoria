@@ -8,6 +8,24 @@ Caricare nella document root del dominio tutti i file e le cartelle del branch. 
 
 Duplicare .env.example come .env e impostare i valori del dominio. La configurazione .htaccess mantiene gli URL senza estensione già usati dal sito.
 
+
+## Moduli e SMTP Libero
+
+Contatti e prenotazioni inviano una notifica a `atelierdoria@libero.it` tramite SMTP autenticato. Nel file `.env` su Aruba impostare:
+
+```dotenv
+CONTACT_EMAIL=atelierdoria@libero.it
+SMTP_HOST=smtp.libero.it
+SMTP_PORT=465
+SMTP_USERNAME=atelierdoria@libero.it
+SMTP_PASSWORD=password-reale-della-casella
+SMTP_FROM=atelierdoria@libero.it
+```
+
+La password non deve essere inserita in `.env.example`, nei commit o su Vercel. Il file `.env` è escluso da Git e protetto da accesso web tramite `.htaccess`.
+
+Dopo il caricamento su Aruba, inviare una prova da `/contatti` e una da `/prenotazioni`, quindi verificare Posta in arrivo, Spam e i log PHP. Se la password della casella cambia, aggiornare immediatamente `SMTP_PASSWORD`.
+
 ## Avvio locale
 
 Avviare con: php -S localhost:8000 router.php
