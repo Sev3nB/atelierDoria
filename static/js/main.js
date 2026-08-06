@@ -1,14 +1,26 @@
 const toggle = document.querySelector(".nav-toggle"),
   nav = document.querySelector(".main-nav");
-if (toggle && nav)
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(open));
+const setNavigationOpen = (open) => {
+  if (!toggle || !nav) return;
+  nav.classList.toggle("open", open);
+  toggle.setAttribute("aria-expanded", String(open));
+  const label = toggle.querySelector(".sr-only");
+  if (label) label.textContent = open ? "Chiudi menu" : "Apri menu";
+};
+if (toggle && nav) {
+  toggle.addEventListener("click", () =>
+    setNavigationOpen(!nav.classList.contains("open")),
+  );
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("open")) {
+      setNavigationOpen(false);
+      toggle.focus();
+    }
   });
+}
 document.querySelectorAll(".main-nav a").forEach((link) =>
   link.addEventListener("click", () => {
-    nav?.classList.remove("open");
-    toggle?.setAttribute("aria-expanded", "false");
+    setNavigationOpen(false);
   }),
 );
 document.querySelectorAll(".main-nav a").forEach((link) => {
@@ -57,9 +69,12 @@ updateBackToTop();
 
 const heroVideo = document.querySelector("[data-hero-video]");
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (heroVideo && reducedMotion) {
+const saveData = navigator.connection?.saveData === true;
+if (heroVideo && (reducedMotion || saveData)) {
   heroVideo.pause();
   heroVideo.removeAttribute("autoplay");
+  heroVideo.querySelectorAll("source").forEach((source) => source.removeAttribute("src"));
+  heroVideo.load();
 } else if (heroVideo) {
   heroVideo.muted = true;
   heroVideo.defaultMuted = true;
@@ -84,7 +99,14 @@ if (heroVideo && reducedMotion) {
   const playback = heroVideo.play();
   if (playback?.catch) playback.catch(enablePlaybackFallback);
 
+  const videoObserver = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting && !document.hidden) resumeHeroVideo();
+    else heroVideo.pause();
+  }, { threshold: 0.05 });
+  videoObserver.observe(heroVideo);
+
   document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && heroVideo.paused) resumeHeroVideo();
+    if (document.hidden) heroVideo.pause();
+    else if (heroVideo.getBoundingClientRect().bottom > 0) resumeHeroVideo();
   });
 }
