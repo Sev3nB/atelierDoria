@@ -125,7 +125,7 @@ function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Bri
     global $site_url, $site_indexable, $search_console_verification, $google_business_url, $phone_uri, $contact_email, $instagram_url, $facebook_url, $thefork_url, $photos, $csp_nonce;
     $request_uri = strtok($_SERVER['REQUEST_URI'] ?? '/', '?') ?: '/';
     $canonical = $site_url . $request_uri;
-?><!doctype html>
+?><!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="utf-8">
@@ -211,7 +211,7 @@ function page_end(array $scripts = []): void {
 ?></main>
 <footer class="site-footer">
   <div class="footer-brand-copy"><a class="footer-brand-mark" href="/" aria-label="Atelier Doria, home"><img src="<?= asset('img/brand/logo-atelier-doria.png') ?>" alt="Atelier Doria — Osteria Contemporanea" width="2019" height="449" loading="lazy" decoding="async"></a><p>Corso Roma, 32 · Brindisi</p></div>
-  <div><p class="eyebrow">Contatti</p><?php if ($phone_uri): ?><a href="tel:<?= e($phone_uri) ?>"><?= e($phone_display) ?></a><?php else: ?><span><?= e($phone_display) ?></span><?php endif; ?><br><?php if ($contact_email): ?><a href="mailto:<?= e($contact_email) ?>"><?= e($contact_email) ?></a><?php endif; ?></div>
+  <div><p class="eyebrow">Contatti</p><?php if ($phone_uri): ?><a href="tel:<?= e($phone_uri) ?>"><?= str_replace(' ', '&nbsp;', e($phone_display)) ?></a><?php else: ?><span><?= str_replace(' ', '&nbsp;', e($phone_display)) ?></span><?php endif; ?><br><?php if ($contact_email): ?><a href="mailto:<?= e($contact_email) ?>"><?= e($contact_email) ?></a><?php endif; ?></div>
   <div><p class="eyebrow">Seguici</p><a href="<?= e($instagram_url) ?>" target="_blank" rel="noopener">Instagram</a><br><a href="<?= e($facebook_url) ?>" target="_blank" rel="noopener">Facebook</a><br><a href="<?= e($thefork_url) ?>" target="_blank" rel="noopener">TheFork</a></div>
   <div class="footer-legal"><p class="eyebrow">Dati legali</p><p>Appia Food S.R.L.S.</p><p>P.IVA 02717510743</p><p>Sede legale · Corso Roma 32, 72100 Brindisi (BR)</p><p><a href="/privacy">Privacy Policy</a><br><a href="/cookie-policy">Cookie Policy</a></p></div>
   <p class="footer-bottom">© <?= date('Y') ?> Atelier Doria · Appia Food S.R.L.S. · P.IVA 02717510743</p>
