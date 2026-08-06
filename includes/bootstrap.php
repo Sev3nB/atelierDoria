@@ -40,7 +40,10 @@ function route(string $name): string {
     ][$name] ?? '/';
 }
 
-$site_url = rtrim(env_value('SITE_URL', 'http://localhost'), '/');
+$site_url = rtrim(env_value('SITE_URL', 'https://www.atelierdoria.it'), '/');
+$site_indexable = env_value('SITE_INDEXABLE', '0') === '1';
+$search_console_verification = env_value('GOOGLE_SITE_VERIFICATION');
+$google_business_url = env_value('GOOGLE_BUSINESS_URL');
 $phone_display = env_value('PHONE_DISPLAY', '+39 329 896 2703');
 $phone_uri = env_value('PHONE_URI', '+393298962703');
 $contact_email = env_value('CONTACT_EMAIL', 'atelierdoria@libero.it');
@@ -58,7 +61,7 @@ $hours = json_data('orari.json');
 $photos = json_data('photos.json');
 
 function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Brindisi', string $description = 'Cucina pugliese contemporanea nel centro storico di Brindisi'): void {
-    global $site_url, $phone_uri;
+    global $site_url, $site_indexable, $search_console_verification, $google_business_url, $phone_uri, $contact_email, $instagram_url, $facebook_url, $thefork_url, $photos;
     $request_uri = strtok($_SERVER['REQUEST_URI'] ?? '/', '?') ?: '/';
     $canonical = $site_url . $request_uri;
 ?><!doctype html>
@@ -69,12 +72,16 @@ function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Bri
   <meta name="theme-color" content="#063f44">
   <title><?= e($title) ?></title>
   <meta name="description" content="<?= e($description) ?>">
+  <meta name="robots" content="<?= $site_indexable ? 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' : 'noindex,nofollow' ?>">
+  <?php if ($search_console_verification): ?><meta name="google-site-verification" content="<?= e($search_console_verification) ?>"><?php endif; ?>
   <meta property="og:title" content="<?= e($title) ?>">
   <meta property="og:description" content="<?= e($description) ?>">
   <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="it_IT">
   <meta property="og:url" content="<?= e($canonical) ?>">
-  <meta property="og:image" content="<?= e($site_url . asset('img/logo.svg')) ?>">
+  <meta property="og:image" content="<?= e($site_url . asset($photos['featured']['hero_poster']['image'])) ?>">
+  <meta property="og:image:alt" content="<?= e($photos['featured']['hero_poster']['alt']) ?>">
+  <meta property="og:site_name" content="Atelier Doria">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="<?= e($canonical) ?>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,13 +93,36 @@ function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Bri
   <link rel="icon" href="<?= asset('favicon/favicon-32.png') ?>" type="image/png" sizes="32x32">
   <link rel="icon" href="<?= asset('favicon/favicon-192.png') ?>" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="<?= asset('favicon/apple-touch-icon.png') ?>" sizes="180x180">
-  <script type="application/ld+json"><?= json_encode(array_filter([
-      '@context' => 'https://schema.org', '@type' => 'Restaurant', 'name' => 'Atelier Doria',
+  <?php
+    $same_as = array_values(array_filter([$google_business_url, $instagram_url, $facebook_url, $thefork_url]));
+    $restaurant_schema = array_filter([
+      '@context' => 'https://schema.org',
+      '@type' => 'Restaurant',
+      '@id' => $site_url . '/#restaurant',
+      'name' => 'Atelier Doria',
       'description' => 'Osteria contemporanea di cucina pugliese a Brindisi',
-      'address' => ['@type' => 'PostalAddress', 'streetAddress' => 'Corso Roma, 32', 'addressLocality' => 'Brindisi', 'addressRegion' => 'BR', 'addressCountry' => 'IT'],
-      'servesCuisine' => ['Cucina pugliese', 'Cucina italiana contemporanea'], 'priceRange' => '€€',
-      'sameAs' => ['https://www.instagram.com/hostaria_atelierdoria/'], 'telephone' => $phone_uri ?: null,
-  ]), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
+      'url' => $site_url . '/',
+      'image' => $site_url . asset($photos['featured']['hero_poster']['image']),
+      'logo' => $site_url . asset('img/brand/logo-atelier-doria.png'),
+      'telephone' => $phone_uri ?: null,
+      'email' => $contact_email ?: null,
+      'menu' => $site_url . '/menu',
+      'acceptsReservations' => $site_url . '/prenotazioni',
+      'hasMap' => $google_business_url ?: null,
+      'address' => [
+        '@type' => 'PostalAddress',
+        'streetAddress' => 'Corso Roma, 32',
+        'postalCode' => '72100',
+        'addressLocality' => 'Brindisi',
+        'addressRegion' => 'BR',
+        'addressCountry' => 'IT',
+      ],
+      'servesCuisine' => ['Cucina pugliese', 'Cucina italiana contemporanea'],
+      'priceRange' => '€€',
+      'sameAs' => $same_as ?: null,
+    ]);
+  ?>
+  <script type="application/ld+json"><?= json_encode($restaurant_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?></script>
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
