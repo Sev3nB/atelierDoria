@@ -12,6 +12,8 @@ $routes = [
     'galleria'      => 'galleria.php',
     'eventi'        => 'eventi.php',
     'contatti'      => 'contatti.php',
+    'privacy'       => 'privacy.php',
+    'cookie-policy' => 'cookie-policy.php',
     'sitemap.xml'   => 'sitemap.php',
 ];
 
