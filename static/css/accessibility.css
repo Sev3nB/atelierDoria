@@ -1,0 +1,78 @@
+/* Accessibility and resilient interaction defaults */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.sr-only {
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.nav-toggle,
+.language-toggle,
+.back-to-top {
+  min-width: 44px;
+  min-height: 44px;
+}
+.main-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .45rem;
+}
+button,
+input,
+textarea,
+select {
+  touch-action: manipulation;
+}
+input,
+textarea,
+select {
+  min-height: 44px;
+}
+textarea {
+  min-height: 7rem;
+}
+.success,
+.error,
+.form-status {
+  scroll-margin-top: 7rem;
+}
+img {
+  height: auto;
+}
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+@media (max-width: 900px) {
+  .main-nav a,
+  .language-toggle {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .hero-media video {
+    display: none;
+  }
+}
+@media (forced-colors: active) {
+  .button,
+  .nav-toggle,
+  .back-to-top,
+  input,
+  textarea {
+    border: 1px solid ButtonText;
+  }
+  .scroll-progress {
+    display: none;
+  }
+}
