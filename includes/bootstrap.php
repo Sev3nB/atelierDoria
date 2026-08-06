@@ -36,7 +36,7 @@ function route(string $name): string {
     return [
         'home' => '/', 'menu' => '/menu', 'about' => '/chi-siamo',
         'reviews' => '/recensioni', 'bookings' => '/prenotazioni',
-        'gallery' => '/galleria', 'events' => '/eventi', 'contacts' => '/contatti',
+        'gallery' => '/galleria', 'events' => '/eventi', 'contacts' => '/contatti', 'privacy' => '/privacy', 'cookies' => '/cookie-policy',
     ][$name] ?? '/';
 }
 
@@ -80,7 +80,7 @@ function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Bri
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <?php foreach (['variables.css','style.css','desktop-fixes.css','brief-completion.css','brand-story.css','official-logo.css','photo-library.css'] as $css): ?>
+  <?php foreach (['variables.css','style.css','desktop-fixes.css','brief-completion.css','brand-story.css','official-logo.css','photo-library.css','legal.css'] as $css): ?>
   <link rel="stylesheet" href="<?= asset('css/' . $css) ?>">
   <?php endforeach; ?>
   <link rel="icon" href="<?= asset('favicon/favicon-32.png') ?>" type="image/png" sizes="32x32">
@@ -120,12 +120,13 @@ function page_end(array $scripts = []): void {
   <div class="footer-brand-copy"><a class="footer-brand-mark" href="/" aria-label="Atelier Doria, home"><img src="<?= asset('img/brand/logo-atelier-doria.png') ?>" alt="Atelier Doria — Osteria Contemporanea" width="2019" height="449" loading="lazy" decoding="async"></a><p>Corso Roma, 32 · Brindisi</p></div>
   <div><p class="eyebrow">Contatti</p><?php if ($phone_uri): ?><a href="tel:<?= e($phone_uri) ?>"><?= e($phone_display) ?></a><?php else: ?><span><?= e($phone_display) ?></span><?php endif; ?><br><?php if ($contact_email): ?><a href="mailto:<?= e($contact_email) ?>"><?= e($contact_email) ?></a><?php endif; ?></div>
   <div><p class="eyebrow">Seguici</p><a href="<?= e($instagram_url) ?>" target="_blank" rel="noopener">Instagram</a><br><a href="<?= e($facebook_url) ?>" target="_blank" rel="noopener">Facebook</a><br><a href="<?= e($thefork_url) ?>" target="_blank" rel="noopener">TheFork</a></div>
-  <div class="footer-legal"><p class="eyebrow">Dati legali</p><p>Appia Food S.R.L.S.</p><p>P.IVA 02717510743</p><p>Sede legale · Corso Roma 32</p></div>
+  <div class="footer-legal"><p class="eyebrow">Dati legali</p><p>Appia Food S.R.L.S.</p><p>P.IVA 02717510743</p><p>Sede legale · Corso Roma 32, 72100 Brindisi (BR)</p><p><a href="/privacy">Privacy Policy</a><br><a href="/cookie-policy">Cookie Policy</a></p></div>
   <p class="footer-bottom">© <?= date('Y') ?> Atelier Doria · Appia Food S.R.L.S. · P.IVA 02717510743</p>
 </footer>
 <button class="back-to-top" type="button" aria-label="Torna all’inizio" title="Torna all’inizio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"/></svg></button>
 <script src="<?= asset('js/main.js') ?>" defer></script>
 <script src="<?= asset('js/i18n.js') ?>" defer></script>
+<script src="<?= asset('js/privacy.js') ?>" defer></script>
 <?php foreach ($scripts as $script): ?><script src="<?= asset('js/' . $script) ?>" defer></script><?php endforeach; ?>
 </body>
 </html>
