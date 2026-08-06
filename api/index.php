@@ -15,6 +15,7 @@ $routes = [
     'privacy'       => 'privacy.php',
     'cookie-policy' => 'cookie-policy.php',
     'sitemap.xml'   => 'sitemap.php',
+    'robots.txt'     => 'robots.php',
 ];
 
 if (isset($routes[$path])) {
