@@ -1,7 +1,7 @@
 DirectoryIndex index.php
 Options -Indexes
 RewriteEngine On
-RewriteRule ^robots\.txt$ static/robots.txt [L]
+RewriteRule ^robots\.txt$ robots.php [L]
 RewriteRule ^sitemap\.xml$ sitemap.php [L]
 RewriteRule ^menu/?$ menu.php [L,QSA]
 RewriteRule ^chi-siamo/?$ chi-siamo.php [L,QSA]
