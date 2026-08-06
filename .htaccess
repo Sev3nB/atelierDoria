@@ -10,6 +10,8 @@ RewriteRule ^prenotazioni/?$ prenotazioni.php [L,QSA]
 RewriteRule ^galleria/?$ galleria.php [L,QSA]
 RewriteRule ^eventi/?$ eventi.php [L,QSA]
 RewriteRule ^contatti/?$ contatti.php [L,QSA]
+RewriteRule ^privacy/?$ privacy.php [L,QSA]
+RewriteRule ^cookie-policy/?$ cookie-policy.php [L,QSA]
 ErrorDocument 404 /404.php
 ErrorDocument 500 /500.php
 <FilesMatch "^\.env$">
