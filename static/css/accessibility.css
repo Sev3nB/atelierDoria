@@ -37,7 +37,12 @@ textarea {
 .form-status {
   scroll-margin-top: 7rem;
 }
+
+/* Keep the mobile dropdown attached to the header at every scroll state. */
 @media (max-width: 900px) {
+  .main-nav {
+    top: 100%;
+  }
   .main-nav a,
   .language-toggle {
     min-height: 44px;
@@ -45,6 +50,26 @@ textarea {
     align-items: center;
   }
 }
+
+/* Let the embedded map fill the complete map panel. */
+.contact-map {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.contact-map > .map-consent,
+.contact-map > .map {
+  width: 100%;
+  flex: 1 1 auto;
+}
+.contact-map > .map {
+  display: block;
+  min-height: 410px;
+}
+.contact-map > .map-route {
+  flex: 0 0 auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
