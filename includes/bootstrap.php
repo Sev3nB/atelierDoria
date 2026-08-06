@@ -150,7 +150,7 @@ function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Bri
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <?php foreach (['variables.css','style.css','desktop-fixes.css','brief-completion.css','brand-story.css','official-logo.css','photo-library.css','legal.css'] as $css): ?>
+  <?php foreach (['variables.css','style.css','desktop-fixes.css','brief-completion.css','brand-story.css','official-logo.css','photo-library.css','legal.css','accessibility.css'] as $css): ?>
   <link rel="stylesheet" href="<?= asset('css/' . $css) ?>">
   <?php endforeach; ?>
   <link rel="icon" href="<?= asset('favicon/favicon-32.png') ?>" type="image/png" sizes="32x32">
