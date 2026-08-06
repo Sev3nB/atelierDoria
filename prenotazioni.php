@@ -8,6 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Campi obbligatori mancanti.']); exit;
         }
     }
+    $notes = trim((string)($payload['notes'] ?? ''));
+    if ($notes !== '' && preg_match('/allerg|intoller|celiach|glutin|lattos|salute|farmac|diabet/i', $notes) && ($payload['health_consent'] ?? '') !== '1') {
+        http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Per inviare dati relativi alla salute è necessario il consenso esplicito.']); exit;
+    }
     $date = DateTimeImmutable::createFromFormat('!Y-m-d', (string)$payload['date']);
     $people = filter_var($payload['people'], FILTER_VALIDATE_INT);
     if (!$date || $date < new DateTimeImmutable('today') || $people === false || $people < 1 || $people > 30) {
