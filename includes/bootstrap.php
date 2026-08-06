@@ -15,6 +15,23 @@ function load_env_file(string $path): void {
 
 load_env_file(ROOT_DIR . '/.env');
 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_set_cookie_params(['httponly' => true, 'secure' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'), 'samesite' => 'Lax']);
+    session_start();
+}
+
+function csrf_token(): string {
+    if (empty($_SESSION['csrf_token'])) $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    return $_SESSION['csrf_token'];
+}
+
+function csrf_valid(mixed $token): bool {
+    return is_string($token) && isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
+}
+
+
+require_once ROOT_DIR . '/includes/mailer.php';
+
 function env_value(string $key, string $default = ''): string {
     $value = getenv($key);
     return $value === false || $value === '' ? $default : $value;
