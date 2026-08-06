@@ -37,12 +37,6 @@ textarea {
 .form-status {
   scroll-margin-top: 7rem;
 }
-img {
-  height: auto;
-}
-img[width][height] {
-  aspect-ratio: attr(width) / attr(height);
-}
 @media (max-width: 900px) {
   .main-nav a,
   .language-toggle {
