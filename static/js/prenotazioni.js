@@ -9,9 +9,10 @@ if(form)form.addEventListener("submit",async event=>{
   if(!form.dataset.whatsapp){status.textContent=english?"WhatsApp is not configured yet. Contact the restaurant directly.":"Il numero WhatsApp non è ancora configurato. Contatta direttamente il ristorante.";return}
   try{
     const response=await fetch("/prenotazioni",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
-    if(!response.ok)throw new Error;
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(result.error||"Invio non disponibile.");
     const date=selected.toLocaleDateString(english?"en-GB":"it-IT"),message=english?["Hello! I would like to book a table at Atelier Doria.",`Name: ${data.name}`,`Phone: ${data.phone||"-"}`,`Date: ${date}`,`Time: ${data.time}`,`Guests: ${data.people}`,`Notes: ${data.notes||"-"}`,`Health-data consent: ${data.health_consent==="1"?"yes":"not provided"}`]:["Ciao! Vorrei prenotare un tavolo da Atelier Doria.",`Nome: ${data.name}`,`Telefono: ${data.phone||"-"}`,`Data: ${date}`,`Ora: ${data.time}`,`Persone: ${data.people}`,`Note: ${data.notes||"-"}`,`Consenso dati salute: ${data.health_consent==="1"?"prestato":"non prestato"}`];
     window.open(`https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent(message.join("\n"))}`,"_blank","noopener");
     status.textContent=english?"WhatsApp opened. Send the message to complete your request.":"WhatsApp aperto. Invia il messaggio per completare la richiesta."
-  }catch{status.textContent=english?"The request could not be prepared. Please try again.":"Non è stato possibile preparare la richiesta. Riprova."}
+  }catch(error){status.textContent=english?"The request could not be sent. Please try again.":(error.message||"Non è stato possibile inviare la richiesta. Riprova.")}
 });
