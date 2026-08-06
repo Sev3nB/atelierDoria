@@ -15,18 +15,48 @@ function load_env_file(string $path): void {
 
 load_env_file(ROOT_DIR . '/.env');
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_set_cookie_params(['httponly' => true, 'secure' => (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'), 'samesite' => 'Lax']);
+function ensure_session(): void {
+    if (session_status() === PHP_SESSION_ACTIVE) return;
+    $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+    session_name('atelier_session');
+    ini_set('session.use_strict_mode', '1');
+    ini_set('session.use_only_cookies', '1');
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => $secure,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
     session_start();
 }
 
 function csrf_token(): string {
+    ensure_session();
     if (empty($_SESSION['csrf_token'])) $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     return $_SESSION['csrf_token'];
 }
 
 function csrf_valid(mixed $token): bool {
+    ensure_session();
     return is_string($token) && isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
+}
+
+function rate_limit(string $key, int $maxAttempts = 5, int $windowSeconds = 900): bool {
+    ensure_session();
+    $now = time();
+    $bucket = array_values(array_filter(
+        $_SESSION['rate_limits'][$key] ?? [],
+        static fn (int $timestamp): bool => $timestamp > $now - $windowSeconds
+    ));
+    if (count($bucket) >= $maxAttempts) {
+        $_SESSION['rate_limits'][$key] = $bucket;
+        return false;
+    }
+    $bucket[] = $now;
+    $_SESSION['rate_limits'][$key] = $bucket;
+    return true;
 }
 
 
@@ -77,8 +107,22 @@ $menu_updated = '5 agosto 2026';
 $hours = json_data('orari.json');
 $photos = json_data('photos.json');
 
+$csp_nonce = base64_encode(random_bytes(18));
+
+function send_security_headers(): void {
+    global $csp_nonce;
+    if (headers_sent()) return;
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+    header('Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()');
+    header('Cross-Origin-Opener-Policy: same-origin');
+    header("Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'nonce-{$csp_nonce}'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; upgrade-insecure-requests");
+}
+send_security_headers();
+
 function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Brindisi', string $description = 'Cucina pugliese contemporanea nel centro storico di Brindisi'): void {
-    global $site_url, $site_indexable, $search_console_verification, $google_business_url, $phone_uri, $contact_email, $instagram_url, $facebook_url, $thefork_url, $photos;
+    global $site_url, $site_indexable, $search_console_verification, $google_business_url, $phone_uri, $contact_email, $instagram_url, $facebook_url, $thefork_url, $photos, $csp_nonce;
     $request_uri = strtok($_SERVER['REQUEST_URI'] ?? '/', '?') ?: '/';
     $canonical = $site_url . $request_uri;
 ?><!doctype html>
@@ -87,6 +131,7 @@ function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Bri
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#063f44">
+  <meta name="color-scheme" content="light">
   <title><?= e($title) ?></title>
   <meta name="description" content="<?= e($description) ?>">
   <meta name="robots" content="<?= $site_indexable ? 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' : 'noindex,nofollow' ?>">
@@ -101,6 +146,7 @@ function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Bri
   <meta property="og:site_name" content="Atelier Doria">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="<?= e($canonical) ?>">
+  <?php if ($request_uri === '/'): ?><link rel="preload" as="image" href="<?= asset($photos['featured']['hero_poster']['image']) ?>" fetchpriority="high"><?php endif; ?>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -139,7 +185,7 @@ function page_start(string $title = 'Atelier Doria | Osteria contemporanea a Bri
       'sameAs' => $same_as ?: null,
     ]);
   ?>
-  <script type="application/ld+json"><?= json_encode($restaurant_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?></script>
+  <script type="application/ld+json" nonce="<?= e($csp_nonce) ?>"><?= json_encode($restaurant_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?></script>
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
