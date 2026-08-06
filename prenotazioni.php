@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim((string) $payload['name']);
     $phone = trim((string) ($payload['phone'] ?? ''));
     $time = trim((string) $payload['time']);
-    if (mb_strlen($name) > 120 || mb_strlen($phone) > 40 || mb_strlen($notes) > 2000 || !preg_match('/^([01]\\d|2[0-3]):[0-5]\\d$/', $time)) {
+    if (mb_strlen($name) > 120 || mb_strlen($phone) > 40 || mb_strlen($notes) > 2000 || !preg_match('/^([01]\d|2[0-3]):[0-5]\d$/', $time)) {
         http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Dati della prenotazione non validi.']); exit;
     }
     try {
