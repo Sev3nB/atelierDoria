@@ -831,6 +831,23 @@ h2 em {
   border-left: 0;
 }
 .contact-form textarea { min-height: 170px; resize: vertical; }
+.contact-email-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: clamp(2rem, 4vw, 4rem);
+  border-radius: 0 var(--radius) 0 0;
+  border-left: 0;
+}
+.contact-email-card h2,
+.contact-email-card p { margin: 0; }
+.contact-email-address {
+  color: var(--dark);
+  font: 500 clamp(1.1rem, 2vw, 1.55rem) var(--serif);
+  overflow-wrap: anywhere;
+}
 .contact-map {
   grid-column: 1 / -1;
   position: relative;
@@ -916,9 +933,11 @@ h2 em {
   .menu-aside { position: static; }
   .menu-aside img { max-height: 520px; aspect-ratio: 16/10; border-radius: var(--radius); }
   .contact-info,
-  .contact-form { border-radius: 0; border: 1px solid var(--neutral); }
+  .contact-form,
+  .contact-email-card { border-radius: 0; border: 1px solid var(--neutral); }
   .contact-info { border-radius: var(--radius) var(--radius) 0 0; }
-  .contact-form { border-top: 0; }
+  .contact-form,
+  .contact-email-card { border-top: 0; }
   .story-photo img { min-height: 430px; }
   .instagram-grid a:nth-child(2),
   .review-card:nth-child(2) {
