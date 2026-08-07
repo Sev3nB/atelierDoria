@@ -70,7 +70,11 @@
 .booking-photo { min-height: 680px; }
 .booking-photo img { object-position: center; }
 .event-photo { width: min(100%, 1100px); height: clamp(380px, 55vw, 680px); margin: 0 auto var(--space); }
-.review-atmosphere { height: clamp(360px, 48vw, 640px); margin: 0 max(1.25rem, calc((100vw - var(--max)) / 2)) var(--space); }
+.review-atmosphere {
+  height: clamp(360px, 48vw, 640px);
+  margin: clamp(2rem, 4vw, 4rem) max(1.25rem, calc((100vw - var(--max)) / 2)) 0;
+}
+.reviews-grid { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
 .cellar-visual { min-height: 520px; }
 
 @media (max-width: 900px) {
@@ -97,6 +101,8 @@
   .menu-photo-strip figure,
   .menu-photo-strip figure:first-child { flex: 0 0 82vw; min-height: 420px; scroll-snap-align: start; }
   .booking-photo { min-height: 420px; }
+  .review-atmosphere { margin-top: 1.5rem; }
+  .reviews-grid { padding-top: 2rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .photo-journal-item img,
