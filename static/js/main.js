@@ -1,7 +1,16 @@
 const toggle = document.querySelector(".nav-toggle"),
-  nav = document.querySelector(".main-nav");
+  nav = document.querySelector(".main-nav"),
+  header = document.querySelector(".site-header");
+const syncMobileNavigationPosition = () => {
+  if (!nav || !header || !matchMedia("(max-width: 900px)").matches) return;
+  nav.style.setProperty(
+    "--mobile-nav-top",
+    `${Math.max(0, Math.ceil(header.getBoundingClientRect().bottom))}px`,
+  );
+};
 const setNavigationOpen = (open) => {
   if (!toggle || !nav) return;
+  if (open) syncMobileNavigationPosition();
   nav.classList.toggle("open", open);
   toggle.setAttribute("aria-expanded", String(open));
   const label = toggle.querySelector(".sr-only");
@@ -40,12 +49,12 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
   );
   document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 }
-const header = document.querySelector(".site-header");
 const progress = document.querySelector(".scroll-progress span");
 let ticking = false;
 const updateScrollUI = () => {
   const y = window.scrollY;
   header?.classList.toggle("scrolled", y > 24);
+  if (nav?.classList.contains("open")) syncMobileNavigationPosition();
   if (progress) {
     const available = document.documentElement.scrollHeight - innerHeight;
     progress.style.transform = `scaleX(${available > 0 ? y / available : 0})`;
@@ -57,6 +66,7 @@ addEventListener("scroll", () => {
   ticking = true;
 }, { passive: true });
 updateScrollUI();
+addEventListener("resize", syncMobileNavigationPosition, { passive: true });
 
 const backToTop = document.querySelector(".back-to-top");
 const updateBackToTop = () => backToTop?.classList.toggle("visible", window.scrollY > 520);
