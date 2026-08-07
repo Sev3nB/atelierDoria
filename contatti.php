@@ -1,40 +1,7 @@
 <?php require __DIR__ . '/includes/bootstrap.php';
-$sent = false;
-$error = null;
-$name = trim((string) ($_POST['name'] ?? ''));
-$email = trim((string) ($_POST['email'] ?? ''));
-$message = trim((string) ($_POST['message'] ?? ''));
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (trim((string) ($_POST['website'] ?? '')) !== '') { http_response_code(400); exit; }
-    if (!rate_limit('contact-form', 4, 900)) {
-        http_response_code(429);
-        $error = 'Hai effettuato troppi tentativi. Attendi 15 minuti prima di riprovare.';
-    } elseif (!csrf_valid($_POST['csrf_token'] ?? null)) {
-        http_response_code(400);
-        $error = 'La sessione è scaduta. Ricarica la pagina e riprova.';
-    } elseif ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL) || $message === '' || ($_POST['privacy_read'] ?? '') !== '1') {
-        $error = 'Compila correttamente tutti i campi obbligatori e conferma di aver letto la Privacy Policy.';
-    } elseif (mb_strlen($name) > 120 || mb_strlen($email) > 254 || mb_strlen($message) > 5000) {
-        $error = 'Uno o più campi superano la lunghezza consentita.';
-    } else {
-        try {
-            smtp_send(
-                'Nuovo messaggio dal sito — ' . $name,
-                "Nome: {$name}\nEmail: {$email}\n\nMessaggio:\n{$message}",
-                $email
-            );
-            $sent = true;
-            $name = $email = $message = '';
-        } catch (Throwable $exception) {
-            error_log('Invio modulo contatti fallito: ' . $exception->getMessage());
-            $error = 'Non è stato possibile inviare il messaggio. Riprova più tardi o contatta direttamente il ristorante.';
-        }
-    }
-}
 page_start('Contatti | Atelier Doria Brindisi','Contatti, posizione e orari di Atelier Doria in Corso Roma 32, Brindisi.'); ?>
 <header class="page-hero contact-hero"><div><p class="eyebrow">Vieni a trovarci</p><h1>Contatti</h1><p>Nel centro di Brindisi, tra la sala e la cucina a vista.</p></div><img src="<?= asset($photos['featured']['contacts']['image']) ?>" alt="<?= e($photos['featured']['contacts']['alt']) ?>" width="1080" height="1920" loading="eager" fetchpriority="high"></header>
 <section class="section contact-shell"><div class="contact-info reveal"><p class="eyebrow">Corso Roma 32</p><h2>Passa, chiama<br>o scrivici.</h2><p>72100 Brindisi BR</p><?php if($phone_uri): ?><p class="contact-phone"><a href="tel:<?= e($phone_uri) ?>"><?= str_replace(' ', '&nbsp;', e($phone_display)) ?></a></p><?php endif; ?><?php if($contact_email): ?><p><a href="mailto:<?= e($contact_email) ?>"><?= e($contact_email) ?></a></p><?php endif; ?><p><a class="text-link" href="<?= e($instagram_url) ?>" target="_blank" rel="noopener">Instagram</a></p><div class="contact-hours"><?php foreach($hours as $row): ?><p><strong><?= e($row['days']) ?></strong><br><?= e($row['hours']) ?></p><?php endforeach; ?></div></div>
-<form class="form-card contact-form reveal" method="post"><input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>"><p class="eyebrow">Messaggi</p><h2>Scrivici</h2><?php if($sent): ?><p class="success" role="status" tabindex="-1">Messaggio inviato correttamente.</p><?php endif; ?><?php if($error): ?><p class="error" role="alert" tabindex="-1"><?= e($error) ?></p><?php endif; ?><label for="contact-name">Nome *</label><input id="contact-name" name="name" autocomplete="name" maxlength="120" value="<?= e($name) ?>" required><label for="email">Email *</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" value="<?= e($email) ?>" required><label for="message">Messaggio *</label><textarea id="message" name="message" rows="6" maxlength="5000" autocomplete="off" required><?= e($message) ?></textarea><input class="honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="privacy-check"><input id="contact-privacy" name="privacy_read" type="checkbox" value="1" required><label for="contact-privacy">Dichiaro di aver letto la <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>. *</label></div><button class="button" type="submit">Invia richiesta</button></form>
+<?php if($contact_email): ?><aside class="form-card contact-email-card reveal"><p class="eyebrow">E-mail</p><h2>Scrivici direttamente</h2><p>Per informazioni, richieste o eventi, invia un’e-mail al ristorante.</p><a class="contact-email-address" href="mailto:<?= e($contact_email) ?>"><?= e($contact_email) ?></a><a class="button" href="mailto:<?= e($contact_email) ?>?subject=Richiesta%20dal%20sito%20Atelier%20Doria">Apri e-mail</a></aside><?php endif; ?>
 <div class="contact-map reveal"><?php if($maps_url): ?><div class="map-consent" data-map-consent data-map-src="<?= e($maps_url) ?>"><div class="map-consent-inner"><h2>Mappa esterna</h2><p>Google Maps è bloccato per impostazione predefinita. Caricandolo, Google potrà trattare dati tecnici e usare propri cookie secondo la <a href="/cookie-policy">Cookie Policy</a>.</p><button class="button" type="button" data-load-map>Carica Google Maps</button></div></div><?php else: ?><a class="map-placeholder" href="https://www.google.com/maps/search/?api=1&query=Corso+Roma+32+Brindisi" target="_blank" rel="noopener">Apri Corso Roma 32 su Google Maps</a><?php endif; ?><a class="map-route" href="https://www.google.com/maps/dir/?api=1&destination=Corso+Roma+32+Brindisi" target="_blank" rel="noopener">Apri le indicazioni</a></div></section>
 <?php page_end();
