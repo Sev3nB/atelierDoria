@@ -40,7 +40,7 @@ atelierDoria/
 
 ---
 
-## Autore
+## Autori
 
 - **Matthias Livera** — [GitHub](https://github.com/Sev3nB) · [LinkedIn](https://linkedin.com/in/matthias-livera)
 - **Luigi Sgura** — [GitHub](https://github.com/OctooFL)
