@@ -26,7 +26,7 @@ Sito web promozionale e vetrina sviluppato per l'attività commerciale **Atelier
 ## Struttura del Progetto
 
 
-	```
+```
 
 atelierDoria/
 ├── assets/
@@ -36,7 +36,7 @@ atelierDoria/
 ├── index.html        # Home page principale
 └── README.md
 
-	```
+```
 
 ---
 
